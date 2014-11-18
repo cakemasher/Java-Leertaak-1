@@ -219,11 +219,3 @@ public class Persoon
 		return this.BSN;
 	}
 }
-
-
-
-
-
-
-
-
