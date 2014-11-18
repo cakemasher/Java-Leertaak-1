@@ -132,22 +132,10 @@ public class Persoon
 	/* Een functie waarbij de dag, maand en jaar in cijfers word ingevoerd, gecontrolleerd en indien akkoord, word geset. */
 	public void setGeboorteDatum (int dag, int maand, int jaar)
 	{
-		/* Controleren of de dag meer of gelijk aan 1 is, zo niet, zet naar 0 */
-		if (dag < 1)
-			dag = 0;
-		
-		/* Controleren of maand tussen de 1 en de 12 ligt, zo nee, zet naar 0 */
-		if (maand < 1 && maand > 12)
-			maand = 0;
-		
-		/* Controleren of het jaar tussen de 1900 en de 2100 is, zo niet, zet naar 0 */
-		if (jaar < 1900 && jaar > 2100)
-			jaar = 0;
-		
-		/* Controleren of de datum wel geldig is. */
-		if (!this.checkDatum (dag, maand, jaar))
+		/* Controleren of de dag, maand en jaar geldig zijn, en of de datum een geldige datum is, zo nee, worden alle values naar 0 gezet. */
+		if (dag < 1 || (maand < 1 || maand > 12) || (jaar < 1900 || jaar > 2100) || !this.checkDatum (dag, maand, jaar))
 		{
-			/* De datum bleek ongeldig, waardoor alles op 0 word gezet. */
+			/* De boolean bleek true of de datum bleek ongeldig, waardoor alles op 0 word gezet. */
 			dag		= 0;
 			maand	= 0;
 			jaar	= 0;
