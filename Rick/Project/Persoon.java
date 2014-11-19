@@ -10,15 +10,16 @@ public class Persoon
 	private int BSN;
 	private String Voornaam;
 	private String Achternaam;
+	private char Geslacht;
 	
 	private int GeboorteDatumDag;
 	private int GeboorteDatumMaand;
 	private int GeboorteDatumJaar;
 	
-	private char Geslacht;
+	private Dienblad dienblad;
 	
 	/* Constructer voor de class Persoon. */
-	public Persoon (int BSN, String Voornaam, String Achternaam, int GeboorteDatumDag, int GeboorteDatumMaand, int GeboorteDatumJaar, char Geslacht)
+	public Persoon(int BSN, String Voornaam, String Achternaam, int GeboorteDatumDag, int GeboorteDatumMaand, int GeboorteDatumJaar, char Geslacht)
 	{
 		/* De onderstaande gegevens in het object opslaan. */
 		this.BSN		= BSN;
@@ -26,32 +27,64 @@ public class Persoon
 		this.Achternaam	= Achternaam;
 		
 		/* De setters aanroepen om de controles uit te voeren. */
-		this.setGeboorteDatum (GeboorteDatumDag, GeboorteDatumMaand, GeboorteDatumJaar);
-		this.setGeslacht (Geslacht);
+		this.setGeboorteDatum(GeboorteDatumDag, GeboorteDatumMaand, GeboorteDatumJaar);
+		this.setGeslacht(Geslacht);
 	}
 	
 	
 	/* Een void functie waarmee de gegevens worden geprint. */
-	public void drukAf ()
+	public void drukAf()
 	{
 		/* Het begin van de functie markeren, gevolgd door een enter, zodat het duidelijk word dat onderstaande bij elkaar hoord. */
-		System.out.println ("########################");
+		System.out.println("########################");
 		
 		/* De voor en achternaam printen. */
-		System.out.println ("## Naam: " + this.getVoornaam () + " " + this.getAchternaam ());
+		System.out.println("## Naam: " + this.getVoornaam () + " " + this.getAchternaam ());
 		
 		/* Het BSN nummer printen. */
-		System.out.println ("## BSN: " + this.getBSN ());
+		System.out.println("## BSN: " + this.getBSN ());
 		
 		/* Het geslacht printen. */
-		System.out.println ("## Geslacht: " + this.getGeslacht ());
+		System.out.println("## Geslacht: " + this.getGeslacht ());
 		
 		/* Het geboortedatum printen. */
-		System.out.println ("## Geboortedatum: " + this.getGeboorteDatum ());
+		System.out.println("## Geboortedatum: " + this.getGeboorteDatum ());
 		
 		/* Het einde van de print functie markeren, zodat indien er meerdere personen worden geprint het makkelijker leesbaar is. */
-		System.out.println ("########################");
-		System.out.println ("");
+		System.out.println("########################");
+		System.out.println("");
+	}
+	
+	
+	/* Functie om een dienblad te koppelen aan een persoon. */
+	public void pakDienblad(Dienblad dienblad)
+	{
+		/* Het dienblad in de object plaatsen. */
+		this.dienblad = dienblad;
+	}
+	
+	
+	/* Functie om een artikel op het dienblad van de persoon te plaatsen. */
+	public void pakArtikel(Artikel artikel)
+	{
+		/* Het artikel in het dienblad van de persoon plaatsen. */
+		this.dienblad.voegToe(artikel);
+	}
+	
+	
+	/* Functie om de totaal prijs van het dienblad te berekenen. */
+	public double getTotaalPrijs()
+	{
+		/* De totaal prijs opvragen van de class dienblad. */
+		return this.dienblad.getTotaalPrijs();
+	} 
+	
+	
+	/* Functie om het aantal artikelen op het dienblad op te vragen. */
+	public int getAantalArtikelen()
+	{
+		/* Het aantal artikelen bij de class dienblad opvragen. */
+		return this.dienblad.getAantalArtikelen();
 	}
 	
 	
@@ -59,10 +92,10 @@ public class Persoon
 		Private functie (word alleen binnen de klass gebruikt) waarmee gechecked word of een datum geldig is.
 		Returned een true bij geldigheid, en false bij ongeldigheid.
 	*/
-	private boolean checkDatum (int dag, int maand, int jaar)
+	private boolean checkDatum(int dag, int maand, int jaar)
 	{
 		/* Switch de maand. */
-		switch (maand)
+		switch(maand)
 		{
 			/* Bij maand 1, 3, 5, 7, 8, 10 en 12, voer het gedeelte onder 12 uit. */
 			case 1:
@@ -80,7 +113,7 @@ public class Persoon
 			/* Indien maand 2 geselecteerd word. */
 			case 2:
 				/* Kijken of we in een schikkeljaar zitten. */
-				if (this.isSchikkelJaar (jaar))
+				if (this.isSchikkelJaar(jaar))
 				{
 					/* We zitten in een schikkeljaar, dus het aantal dagen mag max. 29 zijn. */
 					if (dag <= 29)
@@ -108,7 +141,7 @@ public class Persoon
 	
 	
 	/* private function om te controleren of het jaar een schikkeljaar is of niet. true = schikkeljaar, false = geen schikkeljaar */
-	private boolean isSchikkelJaar (int jaar)
+	private boolean isSchikkelJaar(int jaar)
 	{
 		// Is het jaar deelbaar door 400?
 		if ((jaar % 100) == 0)
@@ -130,10 +163,10 @@ public class Persoon
 	
 	
 	/* Een functie waarbij de dag, maand en jaar in cijfers word ingevoerd, gecontrolleerd en indien akkoord, word geset. */
-	public void setGeboorteDatum (int dag, int maand, int jaar)
+	public void setGeboorteDatum(int dag, int maand, int jaar)
 	{
 		/* Controleren of de dag, maand en jaar geldig zijn, en of de datum een geldige datum is, zo nee, worden alle values naar 0 gezet. */
-		if (dag < 1 || (maand < 1 || maand > 12) || (jaar < 1900 || jaar > 2100) || !this.checkDatum (dag, maand, jaar))
+		if (dag < 1 || (maand < 1 || maand > 12) || (jaar < 1900 || jaar > 2100) || !this.checkDatum(dag, maand, jaar))
 		{
 			/* De boolean bleek true of de datum bleek ongeldig, waardoor alles op 0 word gezet. */
 			dag		= 0;
@@ -149,9 +182,9 @@ public class Persoon
 	
 	
 	/* Een functie om het geslacht te setten, na een controle */
-	public void setGeslacht (char geslacht)
+	public void setGeslacht(char geslacht)
 	{
-		char upperGeslacht = Character.toUpperCase (geslacht);
+		char upperGeslacht = Character.toUpperCase(geslacht);
 		
 		if (upperGeslacht == 'M')
 			this.Geslacht = upperGeslacht;
@@ -164,7 +197,7 @@ public class Persoon
 	
 	
 	/* Een getter functie, om de geboortedatum op te halen. */
-	public String getGeboorteDatum ()
+	public String getGeboorteDatum()
 	{
 		if (this.GeboorteDatumDag == 0 && this.GeboorteDatumMaand == 0 && this.GeboorteDatumJaar == 0)
 			return "Onbekend";
@@ -174,7 +207,7 @@ public class Persoon
 	
 	
 	/* Een getter functie waarbij het geslacht als String word gereturned. */
-	public String getGeslacht ()
+	public String getGeslacht()
 	{
 		/* In onderstaande if statements, word bekeken welke string gereturned moet worden. Indien this.Geslacht de char M bevat, dan word Man gereturned, etc. */
 		if (this.Geslacht == 'M')
@@ -188,21 +221,21 @@ public class Persoon
 	
 	
 	/* Getter functie om de voornaam op te halen. */
-	public String getVoornaam ()
+	public String getVoornaam()
 	{
 		return this.Voornaam;
 	}
 	
 	
 	/* Getter functie om de achternaam op te halen. */
-	public String getAchternaam ()
+	public String getAchternaam()
 	{
 		return this.Achternaam;
 	}
 	
 	
 	/* Getter fubctie om het BSN nummer op te halen. */
-	public int getBSN ()
+	public int getBSN()
 	{
 		return this.BSN;
 	}

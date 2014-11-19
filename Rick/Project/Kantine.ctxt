@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Kantine()
+comment0.text=Constructor
+comment1.params=
+comment1.target=void\ loopPakSluitAan()
+comment1.text=Functie\ waarmee\ een\ klant\ aangemaakt\ word,\ deze\ een\ nieuw\ dienblad\ gegeven\ word\ en\ waarop\ twee\ artikelen\ worden\ geplaatst.\ Vervolgens\ sluit\ de\ klant\ achteraan\ de\ wachtrij.
+comment2.params=
+comment2.target=void\ verwerkRijVoorKassa()
+comment2.text=Functie\ waarmee\ de\ wachtrij\ word\ verwerkt\ van\ de\ kassa.
+comment3.params=
+comment3.target=double\ hoeveelheidGeldInKassa()
+comment3.text=Functie\ waarmee\ het\ totaal\ bedrag\ van\ de\ kassa\ word\ gereturned.
+comment4.params=
+comment4.target=int\ aantalArtikelen()
+comment4.text=Functie\ waarmee\ het\ aantal\ artikelen,\ die\ verkocht\ zijn\ aan\ deze\ kassa,\ zijn\ verkocht.
+comment5.params=
+comment5.target=void\ resetKassa()
+comment5.text=Functie\ om\ het\ aantal\ artikelen\ en\ het\ geld\ bedrag\ in\ de\ kassa\ te\ resetten.
+numComments=6

@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=kassarij
+comment0.target=Kassa(KassaRij)
+comment0.text=Constructor\ voor\ de\ class\ Dienblad.
+comment1.params=
+comment1.target=void\ rekenAf()
+comment1.text=Methode\ rekenAf\ waarmee\ er\ word\ afgerekend\ met\ de\ eerste\ persoon\ uit\ de\ wachtrij\ van\ de\ kassa.
+comment2.params=
+comment2.target=int\ aantalArtikelen()
+comment2.text=Methode\ om\ het\ aantal\ artikelen\ dat\ in\ totaal\ langs\ de\ kassa\ is\ geweest,\ terug\ te\ geven.
+comment3.params=
+comment3.target=double\ hoeveelheidGeldInKassa()
+comment3.text=Methode\ om\ het\ geld\ bedrag\ wat\ totaal\ is\ betaald\ terug\ te\ geven.
+comment4.params=
+comment4.target=void\ resetKassa()
+comment4.text=Methode\ om\ zowel\ het\ aantal\ producten,\ als\ het\ totaal\ bedrag\ op\ 0\ te\ zetten.
+numComments=5
