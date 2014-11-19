@@ -1,3 +1,9 @@
+/**
+ * Write a description of class Artikel here.
+ * 
+ * @author Rick Wolthuis
+ * @version 19-11-2014
+ */
 public class Kantine
 {
 	private Kassa kassa;
@@ -12,48 +18,62 @@ public class Kantine
 		/* Nieuwe kassa aanmaken, de kassarij hierin mee geven, en de kassa opslaan. */
 		this.kassa = new Kassa(kassarij);
 	}
-
+	
+	
 	/* Functie waarmee een klant aangemaakt word, deze een nieuw dienblad gegeven word en waarop twee artikelen worden geplaatst. Vervolgens sluit de klant achteraan de wachtrij. */
 	public void loopPakSluitAan()
 	{
-		Persoon klant		= new Persoon (101010, "Rick", "Wolthuis", 6, 1, 1992, 'M');
+		/* Een nieuwe klant aanmaken, en in de constructer de benodigde variables plaatsen. */
+		Persoon klant		= new Persoon(101010, "Rick", "Wolthuis", 6, 1, 1992, 'M');
 		
-		klant.pakDienblad (new Dienblad ());
+		/* De klant een nieuwe dienblad (object) mee geven. */
+		klant.pakDienblad(new Dienblad());
 		
-		klant.pakArtikel (new Artikel ("Artikel Naam #1", 10.21));
-		klant.pakArtikel (new Artikel ("Artikel Naam #2", 7.54));
+		/* De klant 2 nieuwe artikelen (objecten) op zijn dienblad laten plaatsen. */
+		klant.pakArtikel(new Artikel("Artikel Naam #1", 10.21));
+		klant.pakArtikel(new Artikel("Artikel Naam #2", 7.54));
 		
-		this.kassarij.sluitAchteraan (klant);
+		/* De klant achterin de kassarij laten aansluiten. */
+		this.kassarij.sluitAchteraan(klant);
 	}
- /**
- * Deze methode handelt de rij voor de kassa af.
- */
- public void verwerkRijVoorKassa() {
- while() {
- //omitted 
- }
- }
- /**
- * Deze methode telt het geld uit de kassa
- * @return hoeveelheid geld in kassa
- */
- public double hoeveelheidGeldInKassa() {
- //omitted
- }
-Thema 1.2 I/TI Leertaak 1 Pagina 10 van 27 /**
- * Deze methode geeft het aantal gepasseerde artikelen.
- * @return het aantal gepasseerde artikelen
- */
- public int aantalArtikelen(){
- //omitted
- }
- 
- /**
- * Deze methode reset de bijgehouden telling van 
- * het aantal artikelen
- * en "leegt" de inhoud van de kassa.
- */
- public void resetKassa() {
-// omitted
- }
+	
+	
+	/* Functie waarmee de wachtrij word verwerkt van de kassa. */
+	public void verwerkRijVoorKassa()
+	{
+		/*
+			Een while word hier gebruikt omdat er tijdens de simulatie eventueel klanten zouden kunnen aansluiten.
+			De while loopt net zo lang door, totdat alle klanten zijn verwerkt. Indien er dus één of meerdere bij komen, worden deze ook nog verwerkt.
+			Indien hier gebruik zou worden gemaakt van een for loop, zou het aantal loops al van te voren worden berekend, en worden daarbij eventuele nieuwe klanten
+			niet mee genomen in de loop.
+		*/
+		
+		/* Net zolang loopen totdat er niemand meer in de kassarij staat. */
+		while(this.kassarij.erIsEenRij())
+		{
+			/* De artikelen van de eerst volgende persoon afrekenen */
+			this.kassa.rekenAf();
+		}
+	}
+	
+	
+	/* Functie waarmee het totaal bedrag van de kassa word gereturned. */
+	public double hoeveelheidGeldInKassa()
+	{
+		return this.kassa.hoeveelheidGeldInKassa();
+	}
+	
+	
+	/* Functie waarmee het aantal artikelen, die verkocht zijn aan deze kassa, zijn verkocht. */
+	public int aantalArtikelen()
+	{
+		return this.kassa.aantalArtikelen();
+	}
+	
+	
+	/* Functie om het aantal artikelen en het geld bedrag in de kassa te resetten. */
+	public void resetKassa()
+	{
+		this.kassa.resetKassa();
+	}
 }
