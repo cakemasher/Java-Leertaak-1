@@ -76,7 +76,7 @@ public class Persoon
 	public double getTotaalPrijs()
 	{
 		/* De totaal prijs opvragen van de class dienblad. */
-		this.dienblad.getTotaalPrijs();
+		return this.dienblad.getTotaalPrijs();
 	} 
 	
 	
@@ -84,7 +84,7 @@ public class Persoon
 	public int getAantalArtikelen()
 	{
 		/* Het aantal artikelen bij de class dienblad opvragen. */
-		this.dienblad.getAantalArtikelen();
+		return this.dienblad.getAantalArtikelen();
 	}
 	
 	
