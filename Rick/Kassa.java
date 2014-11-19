@@ -26,9 +26,9 @@ public class Kassa
 		/* De eerste persoon uit de wachtrij van de kassa ophalen. */
 		Persoon klant = this.kassaRij.eerstePersoonInRij();
 		
-		/* Totalen van de kassa aanpassen. */
-		this.TotaalGeldInKassa = klant.getTotaalPrijs();
-		this.TotaalAantalProducten = getAantalArtikelen();
+		/* Totalen van de kassa aanpassen, en alles bijelkaar optellen. */
+		this.TotaalGeldInKassa		= this.TotaalGeldInKassa + klant.getTotaalPrijs();
+		this.TotaalAantalProducten	= this.TotaalAantalProducten + klant.getAantalArtikelen();
 	}
 	
 	
@@ -49,7 +49,7 @@ public class Kassa
 	/* Methode om zowel het aantal producten, als het totaal bedrag op 0 te zetten. */
 	public void resetKassa()
 	{
-		this.TotaalGeldInKassa = 0;
-		this.TotaalAantalProducten = 0;
+		this.TotaalGeldInKassa		= 0;
+		this.TotaalAantalProducten	= 0;
 	}
 }
