@@ -4,6 +4,11 @@
  * @author Rick Wolthuis
  * @version 18-11-2014
  */
+
+/* De ArrayList importeren. */
+import java.util.ArrayList;
+
+
 public class KassaRij
 {
 	/* De ArrayList met de naam wachtrij, waar de personen in opgeslagen worden. */
@@ -13,7 +18,8 @@ public class KassaRij
 	/* Constructor voor de class Dienblad. */
 	public KassaRij()
 	{
-		
+		/* De ArrayList initialiseren voor 'wachtrij' waar alleen Persoon objecten in kunnen staan. */
+		this.wachtrij = new ArrayList<Persoon>();
 	}
 	
 	
