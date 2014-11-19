@@ -4,6 +4,11 @@
  * @author Rick Wolthuis
  * @version 18-11-2014
  */
+ 
+/* De ArrayList importeren. */
+import java.util.ArrayList;
+
+
 public class Dienblad
 {
 	private ArrayList<Artikel> artikelen;
@@ -11,7 +16,8 @@ public class Dienblad
 	/* Constructor voor de class Dienblad */
 	public Dienblad()
 	{
-		// method body omitted 
+		/* De ArrayList initialiseren voor 'artikelen' waar alleen Artikel objecten in kunnen staan. */
+		this.artikelen = new ArrayList<Artikel>();
 	}
 	
 	
