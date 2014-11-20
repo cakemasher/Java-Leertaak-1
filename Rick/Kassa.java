@@ -27,8 +27,8 @@ public class Kassa
 		Persoon klant = this.kassaRij.eerstePersoonInRij();
 		
 		/* Totalen van de kassa aanpassen, en alles bijelkaar optellen. */
-		this.TotaalGeldInKassa		= this.TotaalGeldInKassa + klant.getTotaalPrijs();
 		this.TotaalAantalProducten	= this.TotaalAantalProducten + klant.getAantalArtikelen();
+		this.TotaalGeldInKassa		= this.TotaalGeldInKassa + klant.getTotaalPrijs();
 	}
 	
 	
