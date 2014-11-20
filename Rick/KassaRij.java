@@ -6,20 +6,23 @@
  */
 
 /* De ArrayList importeren. */
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 public class KassaRij
 {
 	/* De ArrayList met de naam wachtrij, waar de personen in opgeslagen worden. */
-	private ArrayList<Persoon> wachtrij;
+	//private ArrayList<Persoon> wachtrij;
+	private LinkedList<Persoon> wachtrij;
 	
 	
 	/* Constructor voor de class Dienblad. */
 	public KassaRij()
 	{
 		/* De ArrayList initialiseren voor 'wachtrij' waar alleen Persoon objecten in kunnen staan. */
-		this.wachtrij = new ArrayList<Persoon>();
+		//this.wachtrij = new ArrayList<Persoon>();
+		this.wachtrij = new LinkedList<Persoon>();
 	}
 	
 	
