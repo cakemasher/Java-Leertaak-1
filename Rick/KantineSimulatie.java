@@ -7,12 +7,27 @@
 public class KantineSimulatie
 {
 	private Kantine kantine;
+	private KantineAanbod kantineaanbod;
 
 	/* Constructer waarmee de class. */
 	public KantineSimulatie()
 	{
 		/* Een nieuw kantine object aanmaken en deze opslaan in deze class. */
 		this.kantine = new Kantine();
+	}
+	
+	
+	/* Setter functie om het kantine aanbod object op te slaan. */
+	public void setKantineAanbod (KantineAanbod aanbod)
+	{
+		this.kantineaanbod = aanbod;
+	}
+	
+	
+	/* Getter functie om het kantine aanbod object op te halen. */
+	public KantineAanbod getKantineAanbod ()
+	{
+		return this.kantineaanbod;
 	}
 	
 	
@@ -41,8 +56,8 @@ public class KantineSimulatie
 				
 				/* De gegevens van de dag printen. */
 				System.out.println ("Dag: " + (i + 1) + " / " + dagen);
-				System.out.println ("Geld in kas: " + this.kantine.hoeveelheidGeldInKassa());
-				System.out.println ("Aantal artikelen verkocht: " + this.kantine.aantalArtikelen());
+				System.out.println ("Geld in kas: €" + this.kantine.getKassa().hoeveelheidGeldInKassa());
+				System.out.println ("Aantal artikelen verkocht: " + this.kantine.getKassa().aantalArtikelen());
 				System.out.println ("");
 				
 				/* De gegevens (totaal geld en aantal artikelen) resetten. */
