@@ -8,25 +8,39 @@
 public class Artikel
 {
     // Hier worden de variabelen gedeclareerd
-    private String name;
-    private int price;
+    private String nameartikel;
+    private int priceartikel;
     
-    public void setValues(String Name, int Price)
+    public Artikel( String nameArtikel, int priceArtikel)
     {
-        this.name = Name;
-        this.price = Price;
+        this.nameartikel = nameArtikel;
+        this.priceartikel = priceArtikel;
+    }
+    
+    public void setValues(String nameArtikel, int priceArtikel)
+    {
+        this.nameartikel = nameArtikel;
+        this.priceartikel = priceArtikel;
     }
     
     public String getName()
     {
-        return this.name;
+        return this.nameartikel;
     }
     
     public int getPrice()
     {
-        return this.price;
+        return this.priceartikel;
     }
     
-    
+    public void drukAf()
+    {
+        System.out.println("Artikelgegevens");
+        System.out.println("----------------------");
+        System.out.println("Naamartikel: " + this.nameartikel);
+        System.out.println("Prijsartikel: " + this.priceartikel + "cents");
+        System.out.println("----------------------");
+        System.out.println("");
+    }
     
 }

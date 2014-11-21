@@ -22,11 +22,13 @@ public class Person
     
     public Person(String BSN, String firsName, String lastName, int birthYear, int birthMonth, int birthDay, char Geslacht)
     {
-        setBSN("11aaa21231");
-        setFirstName("Tim");
-        setLastName("Zijlstra");
-        setBirthDate(2012, 4, 31);
-        setGeslacht('O');
+        
+        
+        setBSN(BSN);
+        setFirstName(firsName);
+        setLastName(lastName);
+        setBirthDate(birthYear, birthMonth, birthDay);
+        setGeslacht(Geslacht);
         
     }
         
@@ -49,46 +51,56 @@ public class Person
     {
         this.month = birthMonth;
         
-        switch(month)
+        if(birthMonth == 2 && (birthYear % 100) == 0)
         {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                this.monthday = 31;
-            break;
-            
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                this.monthday =30;
-            break;
-                
-            case 2:
-                this.monthday = 666;
-            break;
-        }
-                
-        if(birthday >= 1 && birthDay <= monthday && birthMonth >= 1 && birthMonth <= 12 && birthYear >= 1900 && birthYear <=2100)
-        {
-            this.birthyear = birthYear;
-            this.birthmonth = birthMonth;
-            
-            if(birthMonth == 2)
+            if((birthYear % 400) == 0)
             {
-                this.birthday = monthday;
+                this.monthday = 29;
             }
+        }
+        else if (birthMonth == 2 &&(birthYear % 4) == 0)
+        {
+            this.monthday = 29;            
         }
         else
         {
-            this.birthyear = 0;
-            this.birthmonth = 0;
-            this.birthyear = 0;
+            switch(month)
+            {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    this.monthday = 31;
+                break;
+            
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    this.monthday =30;
+                break;
+                
+                case 2:
+                    this.monthday = 28;
+                break;
+            }
         }
+                
+            if(birthDay >= 1 && birthDay <= monthday && birthMonth >= 1 && birthMonth <= 12 && birthYear >= 1900 && birthYear <=2100)
+            {
+                this.birthyear = birthYear;
+                this.birthmonth = birthMonth;
+                this.birthday = birthDay;
+            }
+            else
+            {
+                this.birthyear = 0;
+                this.birthmonth = 0;
+                this.birthyear = 0;
+            }
     }
     
     public void setGeslacht(char Geslacht)
@@ -147,7 +159,34 @@ public class Person
         }
     }
     
-    
-    
-       
+    public void drukAf()
+    {   
+        this.mv = "Manwijf";
+        this.man = "Man";
+        this.vrouw = "Vrouw";
+        String geSlacht;
+        
+        if(this.geslacht == 'M')
+        {
+            geSlacht = man;
+        }
+        else if(this.geslacht == 'V')
+        {
+            geSlacht = vrouw;
+        }     
+        else
+        {
+            geSlacht = this.mv;
+        }
+        
+        System.out.println("Persoonsgegevens");
+        System.out.println("-----------------------");
+        System.out.println("BugerServiceNummer: " + this.bsn);
+        System.out.println("Firstname: " + this.firstname);
+        System.out.println("Lastname: " + this.lastname);
+        System.out.println("BirthDate: " + this.birthyear + "/" + this.birthmonth + "/" + this.birthday);
+        System.out.println("Geslacht: " + geSlacht);
+        System.out.println("-----------------------");
+        System.out.println("");
+    }       
 }

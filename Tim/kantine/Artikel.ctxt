@@ -1,8 +1,12 @@
 #BlueJ class context
-comment0.params=Name\ Price
-comment0.target=void\ setValues(java.lang.String,\ int)
-comment1.params=
-comment1.target=java.lang.String\ getName()
+comment0.params=nameArtikel\ priceArtikel
+comment0.target=Artikel(java.lang.String,\ int)
+comment1.params=nameArtikel\ priceArtikel
+comment1.target=void\ setValues(java.lang.String,\ int)
 comment2.params=
-comment2.target=int\ getPrice()
-numComments=3
+comment2.target=java.lang.String\ getName()
+comment3.params=
+comment3.target=int\ getPrice()
+comment4.params=
+comment4.target=void\ drukAf()
+numComments=5
