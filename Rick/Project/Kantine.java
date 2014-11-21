@@ -26,12 +26,15 @@ public class Kantine
 		/* Een nieuwe klant aanmaken, en in de constructer de benodigde variables plaatsen. */
 		Persoon klant		= new Persoon(101010, "Rick", "Wolthuis", 6, 1, 1992, 'M');
 		
-		/* De klant een nieuwe dienblad (object) mee geven. */
-		klant.pakDienblad(new Dienblad());
+		/* Een nieuw dienblad aanmaken. */
+		Dienblad dienblad	= new Dienblad();
 		
-		/* De klant 2 nieuwe artikelen (objecten) op zijn dienblad laten plaatsen. */
-		klant.pakArtikel(new Artikel("Artikel Naam #1", 10.21));
-		klant.pakArtikel(new Artikel("Artikel Naam #2", 7.54));
+		/* Een tweetal producten op het dienblad plaatsen met de naam en de prijs ervan. */
+		dienblad.voegToe(new Artikel("Artikel Naam #1", 10.21));
+		dienblad.voegToe(new Artikel("Artikel Naam #2", 7.54));
+		
+		/* De klant het dienblad meegeven. */
+		klant.pakDienblad(dienblad);
 		
 		/* De klant achterin de kassarij laten aansluiten. */
 		this.kassarij.sluitAchteraan(klant);
@@ -57,17 +60,10 @@ public class Kantine
 	}
 	
 	
-	/* Functie waarmee het totaal bedrag van de kassa word gereturned. */
-	public double hoeveelheidGeldInKassa()
+	/* Getter functie waarmee de variable 'kassa' terug word gegeven. */
+	public Kassa getKassa()
 	{
-		return this.kassa.hoeveelheidGeldInKassa();
-	}
-	
-	
-	/* Functie waarmee het aantal artikelen, die verkocht zijn aan deze kassa, zijn verkocht. */
-	public int aantalArtikelen()
-	{
-		return this.kassa.aantalArtikelen();
+		return this.kassa;
 	}
 	
 	
