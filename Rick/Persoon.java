@@ -4,6 +4,10 @@
  * @author Rick Wolthuis
  * @version 18-11-2014
  */
+
+/* Stack importeren zodat we deze kunnen gebruiken in onze class. */
+import java.util.Stack;
+ 
 public class Persoon
 {
 	// instance variables - replace the example below with your own
@@ -64,27 +68,10 @@ public class Persoon
 	}
 	
 	
-	/* Functie om een artikel op het dienblad van de persoon te plaatsen. */
-	public void pakArtikel(Artikel artikel)
+	/* Functie waarbij de instantie 'dienblad' word terug gegeven. */
+	public Stack<Artikel> getDienblad ()
 	{
-		/* Het artikel in het dienblad van de persoon plaatsen. */
-		this.dienblad.voegToe(artikel);
-	}
-	
-	
-	/* Functie om de totaal prijs van het dienblad te berekenen. */
-	public double getTotaalPrijs()
-	{
-		/* De totaal prijs opvragen van de class dienblad. */
-		return this.dienblad.getTotaalPrijs();
-	} 
-	
-	
-	/* Functie om het aantal artikelen op het dienblad op te vragen. */
-	public int getAantalArtikelen()
-	{
-		/* Het aantal artikelen bij de class dienblad opvragen. */
-		return this.dienblad.getAantalArtikelen();
+		return this.dienblad.getArtikelen();
 	}
 	
 	
@@ -143,21 +130,21 @@ public class Persoon
 	/* private function om te controleren of het jaar een schikkeljaar is of niet. true = schikkeljaar, false = geen schikkeljaar */
 	private boolean isSchikkelJaar(int jaar)
 	{
-		// Is het jaar deelbaar door 400?
+		/* Is het jaar deelbaar door 100? */
 		if ((jaar % 100) == 0)
 		{
-			// Is het jaar deelbaar door 100? Zo ja, return true.
+			/* Is het jaar deelbaar door 400? Zo ja, return true. */
 			if ((jaar % 400) == 0)
 				return true;
 		}
 		else
 		{
-			// Is het jaar deelbaar door 4? Zo ja, return true.
+			/* Is het jaar deelbaar door 4? Zo ja, return true. */
 			if ((jaar % 4) == 0)
 				return true;
 		}
 		
-		// Het jaar is niet deelbaar door 400 en ook niet door 4, dus geen schikkeljaar.
+		/* Het jaar is niet deelbaar door 400 en ook niet door 4, dus geen schikkeljaar. */
 		return false;
 	}
 	
