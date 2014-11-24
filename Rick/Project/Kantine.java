@@ -8,6 +8,7 @@ public class Kantine
 {
 	private Kassa kassa;
 	private KassaRij kassarij;
+	private KantineAanbod kantineAanbod;
 	
 	/* Constructor */
 	public Kantine()
@@ -20,24 +21,32 @@ public class Kantine
 	}
 	
 	
+	/* Functie waarmee een kantine aanbod object geset kan worden. */
+	public void setKantineAanbod(KantineAanbod aanbod)
+	{
+		/* Het daadwerkelijk setten van het kantine aanbod. */
+		this.kantineAanbod = aanbod;
+	}
+	
+	
 	/* Functie waarmee een klant aangemaakt word, deze een nieuw dienblad gegeven word en waarop twee artikelen worden geplaatst. Vervolgens sluit de klant achteraan de wachtrij. */
-	public void loopPakSluitAan()
+	public void loopPakSluitAan(Persoon persoon, String[] artikelnamen)
 	{
 		/* Een nieuwe klant aanmaken, en in de constructer de benodigde variables plaatsen. */
-		Persoon klant		= new Persoon(101010, "Rick", "Wolthuis", 6, 1, 1992, 'M');
+		//Persoon klant		= new Persoon(101010, "Rick", "Wolthuis", 6, 1, 1992, 'M');
 		
 		/* Een nieuw dienblad aanmaken. */
-		Dienblad dienblad	= new Dienblad();
+		//Dienblad dienblad	= new Dienblad();
 		
 		/* Een tweetal producten op het dienblad plaatsen met de naam en de prijs ervan. */
-		dienblad.voegToe(new Artikel("Artikel Naam #1", 10.21));
-		dienblad.voegToe(new Artikel("Artikel Naam #2", 7.54));
+		//dienblad.voegToe(new Artikel("Artikel Naam #1", 10.21));
+		//dienblad.voegToe(new Artikel("Artikel Naam #2", 7.54));
 		
 		/* De klant het dienblad meegeven. */
-		klant.pakDienblad(dienblad);
+		//klant.pakDienblad(dienblad);
 		
 		/* De klant achterin de kassarij laten aansluiten. */
-		this.kassarij.sluitAchteraan(klant);
+		//this.kassarij.sluitAchteraan(klant);
 	}
 	
 	
