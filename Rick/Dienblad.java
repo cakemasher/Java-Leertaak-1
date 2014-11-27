@@ -15,8 +15,7 @@ public class Dienblad
 	/* Constructor voor de class Dienblad */
 	public Dienblad()
 	{
-		/* De ArrayList initialiseren voor 'artikelen' waar alleen Artikel objecten in kunnen staan. */
-		//this.artikelen = new ArrayList<Artikel>();
+		/* De Stack initialiseren voor 'artikelen' waar alleen Artikel objecten in kunnen staan. */
 		this.artikelen = new Stack<Artikel>();
 	}
 	
