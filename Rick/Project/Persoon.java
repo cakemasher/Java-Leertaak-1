@@ -68,6 +68,12 @@ public class Persoon
 	}
 	
 	
+	public void pakArtikel(Artikel artikel)
+	{
+		this.dienblad.voegToe(artikel);
+	}
+	
+	
 	/* Functie waarbij de instantie 'dienblad' word terug gegeven. */
 	public Stack<Artikel> getDienblad ()
 	{
