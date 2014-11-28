@@ -19,7 +19,7 @@ public class KantineSimulatie
 	private static double[] artikelprijzen				= new double[] {1.50, 2.10, 1.65, 1.65};
 	
 	private static final int MIN_ARTIKELEN_PER_SOORT	= 10000;
-	private static final int MAX_ARTIKELEN_PER_SOORT	= 20000;
+	private static final int MAX_ARTIKELEN_PER_SOORT	= 20000;	
 	
 	private static final int MIN_PERSONEN_PER_DAG		= 50;
 	private static final int MAX_PERSONEN_PER_DAG		= 100;
@@ -68,7 +68,7 @@ public class KantineSimulatie
 	/* swag 3 */
 	private String[] geefArtikelNamen(int[] indexen)
 	{
-		String[] artikelen=new String[indexen.length];
+		String[] artikelen = new String[indexen.length];
 		
 			for(int i = 0; i < indexen.length; i++)
 			{
@@ -80,14 +80,14 @@ public class KantineSimulatie
 	
 	
 	/* Setter functie om het kantine aanbod object op te slaan. */
-	public void setKantineAanbod (KantineAanbod aanbod)
+	private void setKantineAanbod (KantineAanbod aanbod)
 	{
 		this.kantineaanbod = aanbod;
 	}
 	
 	
 	/* Getter functie om het kantine aanbod object op te halen. */
-	public KantineAanbod getKantineAanbod ()
+	private KantineAanbod getKantineAanbod ()
 	{
 		return this.kantineaanbod;
 	}
@@ -111,16 +111,40 @@ public class KantineSimulatie
 					/* Een loop maken die 10 keer + de dag loopt. */
 					for(int j = 0; j < aantalPersonen; j++)
 					{
+						/* Nieuwe klant (Persoon) aanmaken. */
+						Persoon klant		= new Persoon(1337, "Rick", "Wolthuis", 6, 1, 1992, 'M');
+						
+						/* Nieuwe dieblad aanmaken en koppelen aan de nieuwe klant. */
+						klant.pakDienblad(new Dienblad());
+						
+						/* Random aantal artikelen berekenen. */
+						int aantalartikelen	= this.getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
+						
+						/* Een int array aanmaken met het zelfde aantal values als aantalartikelen */
+						int[] tepakken		= getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
+						
+						/* De ints in de array tepakken koppelen met product namen. */
+						String[] artikelen	= geefArtikelNamen(tepakken);
+						
 						/* Een nieuwe klant aanmaken, die een dienblad geven waarop 2 producten worden geplaatst. */
-						this.kantine.loopPakSluitAan();
+						this.kantine.loopPakSluitAan(klant, artikelen);
 					}
 				
 				/* De wachtrij verwerken, zodat alle klanten hebben afgerekend. */
 				this.kantine.verwerkRijVoorKassa();
 				
+				/*
+					Er word afgerond op twee decimalen. In andere woorden, eerst word het getal x 100 gedaan, dus het getal 100,5050 word bijv. 10050,50
+					Dit getal word afgerond, wat uitkomt op 10051. Vervolgens word het getal weer gedeeld door 100, wat op het volgende uitkomt: 100,51.
+					De reden hiervoor, is omdat Math.round geen doubles af kan ronden (het delen door 100 word gedaan in de println functie).
+				*/
+				double geldInKassa = Math.round ((this.kantine.getKassa().hoeveelheidGeldInKassa() * 100));
+				
+				
 				/* De gegevens van de dag printen. */
 				System.out.println ("Dag: " + (i + 1) + " / " + dagen);
-				System.out.println ("Geld in kas: €" + this.kantine.getKassa().hoeveelheidGeldInKassa());
+				System.out.println ("Klanten: " + aantalPersonen);
+				System.out.println ("Geld in kas: €" + (geldInKassa / 100));
 				System.out.println ("Aantal artikelen verkocht: " + this.kantine.getKassa().aantalArtikelen());
 				System.out.println ("");
 				
@@ -132,32 +156,4 @@ public class KantineSimulatie
 		/* Aangeven dat de simulatie gestopt is. */
 		System.out.println ("######## Einde Simulatie ########");
 	}
-	
-	/*
- public void simuleer(int dagen) {
- // for lus voor dagen
-	for(int i=0;i<dagen;i++) {
- // bedenk hoeveel personen vandaag binnen lopen
-		int aantalpersonen=...
- // laat de personen maar komen...
-			for(int j=0;j<aantalpersonen;j++) {
- // maak persoon en dienblad aan, koppel ze
- // bedenk hoeveel artikelen worden gepakt
-				int aantalartikelen=...
- // genereer de “artikelnummers”, dit zijn indexen
- // van de artikelnamen array
-				int[] tepakken=getRandomArray(aantalartikelen, 0,AANTAL_ARTIKELEN-1);
- // vind de artikelnamen op basis van
- // de indexen hierboven
-				String[] artikelen=geefArtikelNamen(tepakken);
-
- // loop de kantine binnen, pak de gewenste
- // artikelen, sluit aan
- }
- // verwerk rij voor de kassa
- // druk de dagtotalen af en hoeveel personen binnen
- // zijn gekomen
- // reset de kassa voor de volgende dag
- }
- */
 }

@@ -30,23 +30,18 @@ public class Kantine
 	
 	
 	/* Functie waarmee een klant aangemaakt word, deze een nieuw dienblad gegeven word en waarop twee artikelen worden geplaatst. Vervolgens sluit de klant achteraan de wachtrij. */
-	public void loopPakSluitAan(Persoon persoon, String[] artikelnamen)
+	public void loopPakSluitAan(Persoon klant, String[] artikelnamen)
 	{
-		/* Een nieuwe klant aanmaken, en in de constructer de benodigde variables plaatsen. */
-		//Persoon klant		= new Persoon(101010, "Rick", "Wolthuis", 6, 1, 1992, 'M');
-		
-		/* Een nieuw dienblad aanmaken. */
-		//Dienblad dienblad	= new Dienblad();
-		
-		/* Een tweetal producten op het dienblad plaatsen met de naam en de prijs ervan. */
-		//dienblad.voegToe(new Artikel("Artikel Naam #1", 10.21));
-		//dienblad.voegToe(new Artikel("Artikel Naam #2", 7.54));
-		
-		/* De klant het dienblad meegeven. */
-		//klant.pakDienblad(dienblad);
+		if (artikelnamen.length != 0)
+		{
+			for (int i = 0; i < artikelnamen.length; i++)
+			{
+				klant.pakArtikel (this.kantineAanbod.getArtikel(artikelnamen[i]));
+			}
+		}
 		
 		/* De klant achterin de kassarij laten aansluiten. */
-		//this.kassarij.sluitAchteraan(klant);
+		this.kassarij.sluitAchteraan(klant);
 	}
 	
 	

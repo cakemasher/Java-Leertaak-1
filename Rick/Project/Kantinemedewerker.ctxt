@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Kantinemedewerker()
+comment1.params=nummer
+comment1.target=void\ setMedewerkersNummer(int)
+comment2.params=cassiere
+comment2.target=void\ setCassiere(boolean)
+comment3.params=
+comment3.target=int\ getMedewerkersNummer()
+comment4.params=
+comment4.target=boolean\ getCassiere()
+numComments=5

@@ -14,6 +14,9 @@ public class KantineAanbod
 	// interne opslag voorraad
 	private HashMap<String, ArrayList<Artikel>> aanbod;
 	
+	private static final int MIN_VOORRAAD_ARTIKEL	= 10;
+	private static final int VUL_VOORRAAD_AAN_TOT	= 10000;
+	
 	/**
 	* Constructor. Het eerste argument is een lijst met artikelnamen,
 	* het tweede argument is een lijst met prijzen en het derde argument
@@ -23,7 +26,7 @@ public class KantineAanbod
 	public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid)
 	{
 		/* Class initialiseren, en aanbod een nieuwe HashMap geven waarin als index key een String word gebruikt, en als value een ArrayList waarin Artikelen komen te staan. */
-		aanbod = new HashMap<String, ArrayList<Artikel>>();
+		aanbod		= new HashMap<String, ArrayList<Artikel>>();
 			
 			/* Een for loop, die het zelfde aantal keer loopt als de array artikelnaam values heeft. */
 			for(int i = 0; i < artikelnaam.length; i++) 
@@ -82,6 +85,42 @@ public class KantineAanbod
 	}
 	
 	
+	/* Functie waarmee gecontrolleerd word of een artikel nog op voorraad is. */
+	private void controleerVoorraad (String artikelNaam)
+	{
+		/* Het aantal producten ophalen van het artikel dat is geselecteerd. */
+		ArrayList<Artikel> voorraad	= this.getArrayList(artikelNaam);
+		
+			/* Kijken of het voorraad van het product lager is dan het minimaale. */
+			if (voorraad.size() < this.MIN_VOORRAAD_ARTIKEL)
+			{
+				/* Voorraad van het artikel aanpassen. Hierbij word de artikel naam, overige voorraad grootte en de prijs van het artikel word doorgegeven. */
+				this.voegVoorraadToe (artikelNaam, voorraad.size(), voorraad.get(0).getPrijs());
+			}
+	}
+	
+	
+	/* Functie om de voorraad van een artikel aan te vullen. */
+	private void voegVoorraadToe (String artikelNaam, int size, double prijs)
+	{	
+		/* Het artikel verwijderen uit de artikel lijst. */
+		aanbod.remove(artikelNaam);
+	
+		/* Een nieuwe ArrayList aanmaken om de nieuwe voorraad in op te slaan. */
+		ArrayList<Artikel> voorraad	= new ArrayList<Artikel>();
+		
+			/* Een for loop die het overige aantal producten wat in het voorraad was optelt bij het nieuwe aantal. Dit is het eind resultaat hoevaak de loop word gelooped. */
+			for(int i = 0; i < (this.VUL_VOORRAAD_AAN_TOT + size); i++) 
+			{
+				/* Het artikel met de prijs in de ArrayList opslaan. */
+				voorraad.add(new Artikel(artikelNaam, prijs));
+			}
+		
+		this.aanbod.put(artikelNaam, voorraad);
+	}
+	
+	
+	
 	/**
 	* Publieke methode om een artikel via naam van de stapel te pakken.
 	* Retouneert null als artikel niet bestaat of niet op voorraad is.
@@ -90,6 +129,7 @@ public class KantineAanbod
 	*/
 	public Artikel getArtikel(String naam)
 	{
+		this.controleerVoorraad (naam);
 		/* De gegevens van het Artikel ophalen met de naam 'naam'. */
 		return getArtikel(getArrayList(naam));
 	}
