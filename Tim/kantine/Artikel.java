@@ -7,32 +7,42 @@
  */
 public class Artikel
 {
-    // Hier worden de variabelen gedeclareerd
+    // De onderstaande variables worden gedeclareerd.
     private String nameartikel;
-    private int priceartikel;
+    private double priceartikel;
     
-    public Artikel( String nameArtikel, int priceArtikel)
+    
+    /* Constructer voor de class Artikel. */
+    public Artikel( String nameartikel, double priceartikel)
     {
-        this.nameartikel = nameArtikel;
-        this.priceartikel = priceArtikel;
+        setValues(nameartikel, priceartikel);
     }
     
-    public void setValues(String nameArtikel, int priceArtikel)
+    public Artikel()
     {
-        this.nameartikel = nameArtikel;
-        this.priceartikel = priceArtikel;
+        
     }
     
+    /* Een functie om de naam en de prijs te setten. */
+    public void setValues(String nameartikel, double priceartikel)
+    {
+        this.nameartikel = nameartikel;
+        this.priceartikel = priceartikel;
+    }
+    
+    /* Een getter functie, om het artikelnaam op te halen. */
     public String getName()
     {
         return this.nameartikel;
     }
     
-    public int getPrice()
+    /* Een getter functie, om het artikelprijs op te halen. */
+    public double getPrice()
     {
         return this.priceartikel;
     }
     
+    /* Een void functie waarmee de gegevens worden geprint. */
     public void drukAf()
     {
         System.out.println("Artikelgegevens");

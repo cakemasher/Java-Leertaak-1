@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class Person here.
@@ -5,8 +6,9 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Person
+public class Persoon
 {
+    // De onderstaande variables worden gedeclareerd.
     private int bsn;
     private String firstname;
     private String lastname;
@@ -16,19 +18,25 @@ public class Person
     private char geslacht;
     private int month;
     private int monthday;
-    private String mv;
+    private String onbekend;
     private String man;
     private String vrouw;
+    private Dienblad dienblad;
+        
+    public Persoon()
+    {
+        
+    }
     
     /* Constructer voor de class Persoon. */
-    public Person(int BSN, String firsName, String lastName, int birthYear, int birthMonth, int birthDay, char Geslacht)
+    public Persoon(int bsn, String firstname, String lastname, int birthyear, int birthmonth, int birthday, char geslacht)
     {
         /* De setters aanroepen om de controles uit te voeren.*/
-        setBSN(BSN);
-        setFirstName(firsName);
-        setLastName(lastName);
-        setBirthDate(birthYear, birthMonth, birthDay);
-        setGeslacht(Geslacht);
+        setBSN(bsn);
+        setFirstName(firstname);
+        setLastName(lastname);
+        setBirthDate(birthyear, birthmonth, birthday);
+        setGeslacht(geslacht);
         
     }
     
@@ -47,40 +55,40 @@ public class Person
     }   
     
     /* Een functie om het geslacht te setten, na een controle. */
-    public void setBSN(int BSN)
+    public void setBSN(int bsn)
     {
-        this.bsn = BSN;
+        this.bsn = bsn;
     }
     
     /* Een functie om de voornaam te setten. */
-    public void setFirstName(String firstName)
+    public void setFirstName(String firstname)
     {
-        this.firstname = firstName;
+        this.firstname = firstname;
     }
     
     /* Een functie om de voornaam te setten. */
-    public void setLastName(String lastName)
+    public void setLastName(String lastname)
     {
-        this.lastname = lastName;
+        this.lastname = lastname;
     }
     
     /* Een functie om de geboortedatum te setten, na een aantal controles. */
-    public void setBirthDate(int birthYear, int birthMonth, int birthDay)
+    public void setBirthDate(int birthyear, int birthmonth, int birthday)
     {
         /* Eerst de variabele month de waarde geven van de parameter birthMonth. */
-        this.month = birthMonth;
+        this.month = birthmonth;
         
         /* Dan wordt er gecontroleerd of de maand die ingevoerd is gelijk is aan februari en het een schrikkeljaar is.
            Als dit zo is dan kan is monthday gelijk aan 29.
            Is een van de twee niet zo dan hangt het van de maand af die er is ingevoerd. */
-        if(birthMonth == 2 && (birthYear % 100) == 0)
+        if(birthmonth == 2 && (birthyear % 100) == 0)
         {
-            if((birthYear % 400) == 0)
+            if((birthyear % 400) == 0)
             {
                 this.monthday = 29;
             }
         }
-        else if (birthMonth == 2 &&(birthYear % 4) == 0)
+        else if (birthmonth == 2 &&(birthyear % 4) == 0)
         {
             this.monthday = 29;            
         }
@@ -111,31 +119,31 @@ public class Person
             }
         }
             
-            /* Als alle voorwaarden kloppen dan ken de waardes toe. anders zet alle waarden óp 0. */
-            if(birthDay >= 1 && birthDay <= monthday && birthMonth >= 1 && birthMonth <= 12 && birthYear >= 1900 && birthYear <=2100)
-            {
-                this.birthyear = birthYear;
-                this.birthmonth = birthMonth;
-                this.birthday = birthDay;
-            }
-            else
-            {
-                this.birthyear = 0;
-                this.birthmonth = 0;
-                this.birthday = 0;
-            }
+        /* Als alle voorwaarden kloppen dan ken de waardes toe. anders zet alle waarden óp 0. */
+        if(birthday >= 1 && birthday <= monthday && birthmonth >= 1 && birthmonth <= 12 && birthyear >= 1900 && birthyear <=2100)
+        {
+            this.birthyear = birthyear;
+            this.birthmonth = birthmonth;
+            this.birthday = birthday;
+        }
+        else
+        {
+            this.birthyear = 0;
+            this.birthmonth = 0;
+            this.birthday = 0;
+        }
     }
     
     /* Een functie om het geslacht te setten, na een controle. */
-    public void setGeslacht(char Geslacht)
+    public void setGeslacht(char geslacht)
     {   
-        if(Geslacht == 'M')
+        if(geslacht == 'M')
         {
-            this.geslacht = Geslacht;
+            this.geslacht = geslacht;
         }
-        else if(Geslacht == 'V')
+        else if(geslacht == 'V')
         {
-            this.geslacht = Geslacht;
+            this.geslacht = geslacht;
         }
         else
         {
@@ -178,21 +186,93 @@ public class Person
     /* Een getter functie waarbij het geslacht als String word gereturned. */
     public String getGeslacht()
     {
-        this.mv = "Manwijf";
+        this.onbekend = "Onbekend";
         this.man = "Man";
         this.vrouw = "Vrouw";
         
         if(this.geslacht == 'M')
         {
-            return man;
+            return this.man;
         }
         else if(this.geslacht == 'V')
         {
-            return vrouw;
+            return this.vrouw;
         }     
         else
         {
-            return this.mv;
+            return this.onbekend;
         }
     }    
+    
+    /**
+     * Methode om dienblad te koppelen aan een persoon
+     * @param dienblad
+     */
+    public void pakDienblad(Dienblad dienblad)
+    {
+        if(this.dienblad == null)
+        {
+            this.dienblad = dienblad;            
+        }
+        else
+        {
+            System.out.println("Je moet niet zoveel eten.");
+            System.out.println("Eén dienblad is genoeg.");
+        }
+    }
+    
+    /**
+     * Methode om artikel te pakken en te plaatsen op het dienblad
+     * @param artikel
+     */
+    public void pakArtikel(Artikel artikel)
+    {
+        if(this.dienblad == null)
+        {
+            this.dienblad = new Dienblad();
+            this.dienblad.voegToe(artikel);
+        }
+        else
+        {
+            this.dienblad.voegToe(artikel);
+        }
+    }
+    
+    /**
+     * Methode om de totaalprijs van de artikelen
+     * op dienblad dat bij de persoon hoort uit te rekenen
+     * @return De totaalprijs
+     */    
+    public double getTotaalPrijs()
+    {
+        return dienblad.getTotaalPrijs();
+    }
+    
+    /**
+     * Methode om het aantal artikelen op dienblad dat bij de
+     * persoon hoort te tellen
+     * @return Het aantal artikelen
+     */
+    public int getAantalArtikelen()
+    {
+        return dienblad.getAantalArtikelen();
+    }
+    
+    /*
+     * Extra toegevoegd!!
+     * Methode om het dienblad dat automatisch gemaakt is aftedrukken
+     */
+    public void printDienblad()
+    {
+        System.out.println("");
+        System.out.println("Dienblad");
+        System.out.println("-----------------------");
+        for(Artikel artikel : dienblad.getArray())
+        {
+            System.out.println(artikel.getName() + " " + artikel.getPrice());            
+        }
+        System.out.println("-----------------------");
+        System.out.println(getTotaalPrijs());
+    }
+    
 }
