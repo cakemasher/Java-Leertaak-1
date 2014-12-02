@@ -1,5 +1,5 @@
 /**
- * Write a description of class KassaRij here.
+ * Write a description of class Administratie here.
  * 
  * @author Rick Wolthuis
  * @version 27-11-2014
@@ -8,7 +8,6 @@
 public class Administratie
 {
 	static final int DAYS_IN_WEEK = 7;
-	
 	
 	/* > PRIVATE < constructor */
 	private Administratie ()
@@ -21,7 +20,8 @@ public class Administratie
 			We willen voorkomen dat er een object aangemaakt word van de class Administratie.
 		*/
 	}
-
+	
+	
  /**
  * Methode om dagomzet uit te rekenen
  * @param omzet
@@ -39,8 +39,13 @@ public class Administratie
 				int j = 0;
 				
 					/* Een while loop maken die net zo lang door gaat met loopen, totdat de value van de dag van de week erna, leeg is. */
-					while(omzet[(i + (DAYS_IN_WEEK * j))] != -1)
+					//while(omzet[(i + (DAYS_IN_WEEK * j))] != -1)
+					while (true)
 					{
+						/* Controleren of de array niet out of bounds is met de value voor volgende week. */
+						if ((i + (DAYS_IN_WEEK * j)) >= omzet.length)
+							break;
+							
 						/* Het omzet van een bepaalde dag op tellen bij bijvoorbeeld maandag (indien i een 0 is). */
 						temp[i] += omzet[(i + (DAYS_IN_WEEK * j))];
 						

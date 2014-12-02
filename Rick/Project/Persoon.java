@@ -42,6 +42,18 @@ public class Persoon
 		/* Het begin van de functie markeren, gevolgd door een enter, zodat het duidelijk word dat onderstaande bij elkaar hoord. */
 		System.out.println("########################");
 		
+			/* Controleren of dit object een instantie van Student is. */
+			if (this instanceof Student)
+				System.out.println("## Type persoon: Student");
+			
+			/* Controleren of dit object een instantie van Docent is. */
+			if (this instanceof Docent)
+				System.out.println("## Type persoon: Docent");
+			
+			/* Controleren of dit object een instantie van Kantinemedewerker is. */
+			if (this instanceof Kantinemedewerker)
+				System.out.println("## Type persoon: Kantinemedewerker");
+		
 		/* De voor en achternaam printen. */
 		System.out.println("## Naam: " + this.getVoornaam () + " " + this.getAchternaam ());
 		

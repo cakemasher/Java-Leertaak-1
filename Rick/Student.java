@@ -11,8 +11,14 @@ class Student extends Persoon
 	private String studierichting;
 	
 	
-	public Student () {
-		super (123456789, "Rick", "Wolthuis", 6, 1, 1992, 'M');
+	public Student (int BSN, String voornaam, String achternaam, int dag, int maand, int jaar, char geslacht) {
+		super (BSN, voornaam, achternaam, dag, maand, jaar, geslacht);
+	}
+	
+	
+	public String toString ()
+	{
+		return "## Type: Student, nummer: " + this.studentnummer + ", richting: " + this.studierichting;
 	}
 	
 	
