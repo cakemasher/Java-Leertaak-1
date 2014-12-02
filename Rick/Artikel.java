@@ -6,7 +6,7 @@
  */
 public class Artikel
 {
-    // De onderstaande variables worden gedeclareerd.
+    /* De onderstaande variables worden gedeclareerd. */
     private String naam;
     private double prijs;
     
