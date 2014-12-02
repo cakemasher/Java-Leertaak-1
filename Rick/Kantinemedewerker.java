@@ -10,11 +10,17 @@ class Kantinemedewerker extends Persoon
 	private int medewerkersNummer;
 	private boolean cassiere;
 	
-	public Kantinemedewerker () {
-		super (123456789, "Rick", "Wolthuis", 6, 1, 1992, 'M');
+	public Kantinemedewerker (int BSN, String voornaam, String achternaam, int dag, int maand, int jaar, char geslacht) {
+		super (BSN, voornaam, achternaam, dag, maand, jaar, geslacht);
 	}
 	
+	
+	public String toString ()
+	{
+		return "## Type: Kantinemedewerker, nummer: " + this.medewerkersNummer + ", is cassiere: " + this.cassiere;
+	}
 
+	
 	public void setMedewerkersNummer (int nummer)
 	{
 		this.medewerkersNummer = nummer;
