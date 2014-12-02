@@ -30,6 +30,8 @@ public class Kassa
 		/* De eerste persoon uit de wachtrij van de kassa ophalen. */
 		Persoon klant = this.kassaRij.eerstePersoonInRij();
 		
+		klant.drukAf();
+		
 		Stack<Artikel> artikelen	= klant.getDienblad();
 		
 		
