@@ -11,11 +11,17 @@ class Docent extends Persoon
 	private String afdeling;
 	
 	
-	public Docent () {
-		super (123456789, "Rick", "Wolthuis", 6, 1, 1992, 'M');
+	public Docent (int BSN, String voornaam, String achternaam, int dag, int maand, int jaar, char geslacht) {
+		super (BSN, voornaam, achternaam, dag, maand, jaar, geslacht);
 	}
 	
-
+	
+	public String toString ()
+	{
+		return "## Type: Docent, afkorting: " + this.afkorting + ", afdeling: " + this.afdeling;
+	}
+	
+	
 	public void setAfkorting (String afkorting)
 	{
 		this.afkorting = afkorting;
