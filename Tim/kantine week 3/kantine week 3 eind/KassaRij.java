@@ -72,16 +72,4 @@ public class KassaRij
     {
         return this.kassarij.size();
     }
-    
-    /*
-     * Extra toegevoegd!!
-     * Methode om te laten zien wie er in de rij staan
-     */
-    public void drukRijAf()
-    {
-        for(Persoon persoon: kassarij)
-        {
-            System.out.println(persoon.getFirstName() + " " + persoon.getLastName());
-        }
-    }
 }
