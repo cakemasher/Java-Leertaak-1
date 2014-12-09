@@ -42,7 +42,6 @@ public class Student extends Persoon
     
     public void drukAf()
     {
-        super.drukAf();
         System.out.println("Studentgegevens");
         System.out.println("---------------------------------");
         System.out.println("Studentnummer: " + this.studentnummer);

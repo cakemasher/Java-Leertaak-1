@@ -24,11 +24,12 @@ public class KantineSimulatie {
   // minimum en maximum aantal artikelen per soort
   private static final int MIN_ARTIKELEN_PER_SOORT=10000;
   private static final int MAX_ARTIKELEN_PER_SOORT=20000;
-
+  
   // minimum en maximum aantal personen per dag
   private static final int MIN_PERSONEN_PER_DAG=50;
   private static final int MAX_PERSONEN_PER_DAG=100;
-  
+
+  // aantal personen per dag  
   private static final int AANTAL_STUDENTEN = 89;
   private static final int AANTAL_DOCENTEN = 10;
   private static final int AANTAL_KANTINEMEDEWERKERS = 1;
@@ -36,7 +37,9 @@ public class KantineSimulatie {
   // minimum en maximum artikelen per persoon
   private static final int MIN_ARTIKELEN_PER_PERSOON=1;
   private static final int MAX_ARTIKELEN_PER_PERSOON=4;
-
+  
+  private ArrayList<Persoon> personen;
+  
   /**
    * Constructor
    */
@@ -124,8 +127,7 @@ public class KantineSimulatie {
       // druk de dagtotalen af en hoeveel personen binnen 
       // zijn gekomen
       // reset de kassa voor de volgende dag
-      this.kantine.verwerkRijVoorKassa();
-      
+      this.kantine.verwerkRijVoorKassa();      
       
       double geldinkassa = Math.round(this.kantine.getKassa().hoeveelheidGeldInKassa() * 100);
       
@@ -139,6 +141,89 @@ public class KantineSimulatie {
       this.kantine.getKassa().resetKassa();
       
     }
+  }
+  
+  public void simuleer2 (int dagen)
+  {
+      for(int a = 0; a < dagen; a++)
+      {
+          this.personen = new ArrayList<Persoon>();
+          
+          for(int b = 0; b < this.AANTAL_STUDENTEN; b++)
+          {
+              Persoon persoon = new Student(123, "Informatica");
+                            
+              personen.add(persoon);
+          
+              int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
+          
+              //Gegenereerde "artikelnummers", wat zal worden gebruikt als index voor de artikelen.  
+              int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+          
+              // De artikelnamen worden gevonden aan de hand van de index nummers.
+              String[] artikelen = geefArtikelNamen(tepakken);
+
+              // Loop de kantine binnen pak gewenste artikelen en sluit aan in de rij.
+              this.kantine.loopPakSluitAan(persoon, artikelen);
+          }
+          
+          for(int c = 0; c < this.AANTAL_DOCENTEN; c++)
+          {
+              Persoon persoon = new Docent("AAAA", "ICT");
+              
+              personen.add(persoon);
+          
+              int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
+          
+              //Gegenereerde "artikelnummers", wat zal worden gebruikt als index voor de artikelen.  
+              int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+          
+              // De artikelnamen worden gevonden aan de hand van de index nummers.
+              String[] artikelen = geefArtikelNamen(tepakken);
+
+              // Loop de kantine binnen pak gewenste artikelen en sluit aan in de rij.
+              this.kantine.loopPakSluitAan(persoon, artikelen);             
+          }
+          
+          for(int d = 0; d < this.AANTAL_KANTINEMEDEWERKERS; d++)
+          {
+              Persoon persoon = new KantineMedewerker(789, false);
+              
+              personen.add(persoon);
+          
+              int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
+          
+              //Gegenereerde "artikelnummers", wat zal worden gebruikt als index voor de artikelen.  
+              int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+          
+              // De artikelnamen worden gevonden aan de hand van de index nummers.
+              String[] artikelen = geefArtikelNamen(tepakken);
+
+              // Loop de kantine binnen pak gewenste artikelen en sluit aan in de rij.
+              this.kantine.loopPakSluitAan(persoon, artikelen);              
+          }          
+          
+          this.kantine.verwerkRijVoorKassa();          
+          
+          double geldinkassa = Math.round(this.kantine.getKassa().hoeveelheidGeldInKassa() * 100);
+          
+          System.out.println("");
+          System.out.println("Dag " + (a + 1));
+          System.out.println("---------------------");
+          System.out.println("Aantal artikelen: " + this.kantine.getKassa().aantalArtikelen());
+          System.out.println("Geld winst: " + (geldinkassa / 100));
+          System.out.println("---------------------");
+          
+          this.kantine.getKassa().resetKassa();
+      }
+  }
+  
+  public void showPersonen()
+  {
+      for(Persoon persoon : personen)
+      {
+          persoon.drukAf();
+      }
   }
   
   

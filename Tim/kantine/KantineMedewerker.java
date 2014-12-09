@@ -32,7 +32,6 @@ public class KantineMedewerker extends Persoon
     
     public void drukAf()
     {
-        super.drukAf();
         System.out.println("Kantinemedewerkergegevens");
         System.out.println("---------------------------------");
         System.out.println("Medewerkersnummer: " + this.medewerkersnummer);
