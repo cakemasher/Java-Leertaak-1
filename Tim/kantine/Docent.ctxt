@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=Afkorting\ Afdeling
+comment0.target=Docent(java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Docent\r\n
+comment1.params=Afkorting
+comment1.target=void\ setDocentAfkorting(java.lang.String)
+comment2.params=Afdeling
+comment2.target=void\ setAfdeling(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getDocentAfkorting()
+comment4.params=
+comment4.target=java.lang.String\ getAfdeling()
+comment5.params=
+comment5.target=void\ drukAf()
+numComments=6
