@@ -1,23 +1,37 @@
 import java.util.*;
 
 /**
- * Write a description of class Kassa here.
+ * Klassa voor de kassa in de kantine.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Tim Zijlstra) 
+ * @version ()
  */
 public class Kassa
 {
+    // Een object kassarij
     private KassaRij kassaRij;
+    
+    // Het aantalartikelen
     private int aantalartikelen;
+    
+    // Het geld in de kassa
     private double geldinkassa;
+    
+    // Een object
     private Dienblad dienblad;
+    
+    // Iterator lijst van artikelen
     private Iterator<Artikel> artikelenIt;
+    
+    // Tweede aantalartikelen 
     private int aantalartikelen2;
+    
+    // Tweede geldinkassa
     private double geldinkassa2;
     
     /**
      * Constructor
+     * @param kassarij  De naam van het object kassarij.
      */
     public Kassa(KassaRij kassarij)
     {
@@ -28,7 +42,7 @@ public class Kassa
      * vraag het aantal artikelen en de totaalprijs op.
      * De implemantatie wordt later vervangen
      * door een echte betaling door de persoon.
-     * @param persoon die moet afrekenen
+     * @param persoon   De naam van het object persoon.
      */
     public void rekenAf(Persoon persoon)
     {
@@ -52,7 +66,7 @@ public class Kassa
      * heeft gepasseerd,
      * vanaf het moment dat de methode resetWaarden
      * is aangeroepen.
-     * @return aantal artikelen
+     * @return aantalartikelen  Het aantalartikelen.
      */
     public int aantalArtikelen()
     {
@@ -63,7 +77,7 @@ public class Kassa
      * Geeft het totaalbedrag van alle artikelen die
      * de kassa zijn gepasseerd, vanaf het moment dat de methode
      * resetkassa is aangeroepen.
-     * @return hoeveelheid geld in de kassa
+     * @return geldinkassa  De hoeveelheid geld in de kassa.
      */
     public double hoeveelheidGeldInKassa()
     {

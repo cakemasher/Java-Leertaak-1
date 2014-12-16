@@ -1,8 +1,18 @@
 import java.util.*;
 
+/**
+ * Klassa voor de Administratie van de kantine.
+ * 
+ * @author (Tim Zijlstra) 
+ * @version ()
+ */
 public class Administratie {
+  // Aantal dagen in de week
   private static final int DAYS_IN_WEEK = 7;
-    
+   
+  /**
+   * Constructor
+   */
   private Administratie()
   {
       
@@ -59,9 +69,15 @@ public class Administratie {
       for(int i = 0; i < DAYS_IN_WEEK; i++)
       {
           int j = 0;
-          while(j < omzet.length)
+          while (true)
           {
-              temp[i] += omzet[i + DAYS_IN_WEEK * j];
+              if ((i + (DAYS_IN_WEEK * j)) >= omzet.length)
+              {
+                  break;
+              }
+              
+              temp[i] += omzet[(i + (DAYS_IN_WEEK * j))];
+              
               j++;
           }
       }

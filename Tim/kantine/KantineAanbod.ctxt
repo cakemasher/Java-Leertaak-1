@@ -1,20 +1,20 @@
 #BlueJ class context
 comment0.params=artikelnaam\ prijs\ hoeveelheid
 comment0.target=KantineAanbod(java.lang.String[],\ double[],\ int[])
-comment0.text=\r\n\ Constructor.\ Het\ eerste\ argument\ is\ een\ lijst\ met\ artikelnamen,\r\n\ het\ tweede\ argument\ is\ een\ lijst\ met\ prijzen\ en\ het\ derde\ argument\r\n\ is\ een\ lijst\ met\ hoeveelheden.\ Let\ op\:\ de\ dimensies\ van\ de\ drie\ arrays\r\n\ moeten\ wel\ gelijk\ zijn\!\r\n
+comment0.text=\r\n\ Constructor\r\n\ @param\ artikelnaam\ \ \ De\ naam\ van\ het\ artikel.\r\n\ @param\ prijs\ \ \ \ \ \ \ \ \ De\ prijs\ van\ het\ artikel.\r\n\ @param\ hoeveelheid\ \ \ De\ hoeveelheid\ van\ het\ product\ dat\ bestelt\ moet\ worden.\r\n
 comment1.params=productnaam
 comment1.target=java.util.ArrayList\ getArrayList(java.lang.String)
-comment1.text=\r\n\ Private\ methode\ om\ de\ lijst\ van\ artikelen\ te\ krijgen\ op\ basis\ van\ de\ \ \ \ \r\n\ naam\ van\ het\ artikel.\ Retourneert\ null\ als\ artikel\ niet\ bestaat.\r\n
+comment1.text=\r\n\ Private\ methode\ om\ de\ lijst\ van\ artikelen\ te\ krijgen\ op\ basis\ van\ de\ \ \ \ \r\n\ naam\ van\ het\ artikel.\ Retourneert\ null\ als\ artikel\ niet\ bestaat.\r\n\ @param\ productnaam\ \ \ Naam\ van\ het\ product.\r\n\ @return\ product\ \ \ \ \ \ Een\ product\ uit\ het\ aanbod.\r\n
 comment2.params=stapel
 comment2.target=Artikel\ getArtikel(java.util.ArrayList)
-comment2.text=\r\n\ Private\ methode\ om\ een\ Artikel\ van\ de\ stapel\ artikelen\ af\ te\ pakken.\ \r\n\ Retourneert\ null\ als\ de\ stapel\ leeg\ is.\r\n
+comment2.text=\r\n\ Private\ methode\ om\ een\ Artikel\ van\ de\ stapel\ artikelen\ af\ te\ pakken.\ \r\n\ Retourneert\ null\ als\ de\ stapel\ leeg\ is.\r\n\ @param\ stapel\ \ \ \ De\ lijst\ van\ een\ artikelen\ hoeveelheid.\r\n\ @return\ a\ \ \ \ \ \ \ \ Het\ artikel.\r\n
 comment3.params=artikelNaam
 comment3.target=void\ controleerVoorraad(java.lang.String)
-comment3.text=\r\n\ Controleer\ of\ de\ voorraad\ grootte\ kleiner\ is\ als\ het\ bestelniveau.\r\n\ Als\ dit\ zo\ is\ bestel\ nieuwe\ artikelen.\r\n\ @param\ de\ naam\ die\ het\ artikel\ heeft.\r\n
+comment3.text=\r\n\ Controleer\ of\ de\ voorraad\ grootte\ kleiner\ is\ als\ het\ bestelniveau.\r\n\ Als\ dit\ zo\ is\ bestel\ nieuwe\ artikelen.\r\n\ @param\ artikelNaam\ \ \ De\ naam\ die\ het\ artikel\ heeft.\r\n
 comment4.params=artikelNaam\ size\ prijs
 comment4.target=void\ vulVoorraad(java.lang.String,\ int,\ double)
-comment4.text=\r\n\ Verwijder\ de\ artikelnaam\ uit\ de\ ArrayList\ zodat\ deze\ opnieuw\ toegevoegd\ kan\ worden.\r\n\ Maak\ een\ nieuwe\ artikel\ ArrayList\ met\ de\ naam\ voorraad.\r\n\ Een\ for\ loop\ zodat\ het\ artikel\ zo\ vaak\ wordt\ toegevoegd\ aan\ de\ voorraad.\r\n\ @param\ de\ naam\ van\ de\ artikel.\r\n\ @param\ het\ aantal\ artikelen\ dat\ er\ nog\ waren\ in\ de\ voorraad.\r\n\ @param\ de\ prijs\ die\ het\ artikel\ heeft.\r\n
+comment4.text=\r\n\ Verwijder\ de\ artikelnaam\ uit\ de\ ArrayList\ zodat\ deze\ opnieuw\ toegevoegd\ kan\ worden.\r\n\ Maak\ een\ nieuwe\ artikel\ ArrayList\ met\ de\ naam\ voorraad.\r\n\ Een\ for\ loop\ zodat\ het\ artikel\ zo\ vaak\ wordt\ toegevoegd\ aan\ de\ voorraad.\r\n\ @param\ artikelNaam\ \ \ De\ naam\ van\ de\ artikel.\r\n\ @param\ size\ \ \ \ \ \ \ \ \ \ Het\ aantal\ artikelen\ dat\ er\ nog\ waren\ in\ de\ voorraad.\r\n\ @param\ prijs\ \ \ \ \ \ \ \ \ De\ prijs\ die\ het\ artikel\ heeft.\r\n
 comment5.params=naam
 comment5.target=Artikel\ getArtikel(java.lang.String)
-comment5.text=\r\n\ Publieke\ methode\ om\ een\ artikel\ via\ naam\ van\ de\ stapel\ te\ pakken.\r\n\ Retouneert\ null\ als\ artikel\ niet\ bestaat\ of\ niet\ op\ voorraad\ is.\r\n\ @param\ naam\ (van\ artikel)\r\n\ @return\ artikel\ (of\ null)\r\n
+comment5.text=\r\n\ Publieke\ methode\ om\ een\ artikel\ via\ naam\ van\ de\ stapel\ te\ pakken.\r\n\ Retouneert\ null\ als\ artikel\ niet\ bestaat\ of\ niet\ op\ voorraad\ is.\r\n\ @param\ naam\ \ \ \ \ \ De\ naam\ van\ het\ artikel.\r\n\ @return\ artikel\ \ Het\ artikel.\r\n
 numComments=6

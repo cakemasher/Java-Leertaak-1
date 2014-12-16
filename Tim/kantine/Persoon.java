@@ -1,26 +1,50 @@
 import java.util.ArrayList;
 
 /**
- * Write a description of class Person here.
+ * Klasse om een persoon aantemaken.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Tim Zijlstra) 
+ * @version ()
  */
 public class Persoon
 {
-    // De onderstaande variables worden gedeclareerd.
+    // Het bsn nummer
     private int bsn;
+    
+    // De voornaam
     private String firstname;
+    
+    // De achternaam
     private String lastname;
+    
+    // Het geboortejaar
     private int birthyear;
+    
+    // De geboortemaand
     private int birthmonth;
+    
+    // De geboortedag
     private int birthday;
+    
+    // Het geslacht
     private char geslacht;
+    
+    // Welke maand de persoon geboren is.
     private int month;
+    
+    // De hoeveelheid dagen die de maand heeft.
     private int monthday;
+    
+    // De waarde voor het geslacht als onbekend.
     private String onbekend;
+    
+    // De waarde voor het geslacht als man.
     private String man;
+    
+    // De waarde voor het geslacht als vrouw.
     private String vrouw;
+    
+    // Een object dienblad.
     private Dienblad dienblad;
         
     public Persoon()
@@ -28,7 +52,16 @@ public class Persoon
         
     }
     
-    /* Constructer voor de class Persoon. */
+    /**
+     * Constructer
+     * @param bsn           Het bsn nummer van de persoon.
+     * @param firstname     De voornaam van de persoon.
+     * @param lastname      De achternaam van de persoon.
+     * @param birthyear     Het geboortejaar van de persoon.
+     * @param birthmonth    De geboortemaand van de persoon.
+     * @param birthday      De geboorteday van de persoon.
+     * @param geslacht      Het geslacht van de persoon.
+    */
     public Persoon(int bsn, String firstname, String lastname, int birthyear, int birthmonth, int birthday, char geslacht)
     {
         /* De setters aanroepen om de controles uit te voeren.*/
@@ -40,7 +73,9 @@ public class Persoon
         
     }
     
-    /* Een void functie waarmee de gegevens worden geprint. */
+    /**
+     * Methode waarmee de gegevens van de persoon worden geprint.
+    */
     public void drukAf()
     {
         System.out.println("Persoonsgegevens");
@@ -54,25 +89,39 @@ public class Persoon
         System.out.println("");
     }   
     
-    /* Een functie om het geslacht te setten, na een controle. */
+    /**
+     * Methode om het bsn nuummer te setten.
+     * @param bsn   Het bsn nummer van de persoon.
+    */
     public void setBSN(int bsn)
     {
         this.bsn = bsn;
     }
     
-    /* Een functie om de voornaam te setten. */
+    /**
+     * Methode om de voornaam te setten.
+     * @param firstname     De voornaam van het persoon.
+    */
     public void setFirstName(String firstname)
     {
         this.firstname = firstname;
     }
     
-    /* Een functie om de voornaam te setten. */
+    /**
+     * Methode om de voornaam te setten.
+     * @param lastname  De achternaam van de persoon.
+    */
     public void setLastName(String lastname)
     {
         this.lastname = lastname;
     }
     
-    /* Een functie om de geboortedatum te setten, na een aantal controles. */
+    /**
+     * Methode om de geboortedatum te setten.
+     * @param birthyear     De geboorte jaar van de persoon.
+     * @param birthmonth    De geboorte maand van de persoon.
+     * @param birthday      De geboorte dag van de persoon.
+    */
     public void setBirthDate(int birthyear, int birthmonth, int birthday)
     {
         /* Eerst de variabele month de waarde geven van de parameter birthMonth. */
@@ -151,26 +200,38 @@ public class Persoon
         }
     }
     
-    /* Een getter functie, om het BugerServiceNummer op te halen. */
+    /**
+     * Methode om het BugerServiceNummer op te halen.
+     * @return bsn  Het burger service nummer van de persoon.
+    */
     public int getBSN()
     {
         return this.bsn;
     }
     
-    /* Een getter functie, om de voornaam op te halen. */
+    /**
+     * Methode om de voornaam op te halen.
+     * @return firstname    De voornaam van de persoon.
+    */
     public String getFirstName()
     {
         return this.firstname;
     }
     
     
-    /* Een getter functie, om de achternaam op te halen. */
+    /**
+     * Methode om de achternaam op te halen.
+     * @return lastname     De achternaam van de persoon.
+    */
     public String getLastName()
     {
         return this.lastname;
     }
     
-    /* Een getter functie, om de geboortedatum op te halen. */
+    /**
+     * Methode om de geboortedatum op te halen.
+     * @return  geboortedatum   De geboortedatum van de persoon.
+    */
     public String getBirthDate()
     {
         if(this.birthyear == 0 && this.birthmonth == 0 && this.birthday == 0)
@@ -183,7 +244,10 @@ public class Persoon
         }
     }
     
-    /* Een getter functie waarbij het geslacht als String word gereturned. */
+    /**
+     * Methode waarbij het geslacht als String word gereturned.
+     * @return geslacht     Het geslacht van de persoon.
+    */
     public String getGeslacht()
     {
         this.onbekend = "Onbekend";
@@ -206,7 +270,7 @@ public class Persoon
     
     /**
      * Methode om dienblad te koppelen aan een persoon
-     * @param dienblad
+     * @param dienblad  Een dienblad voor de persoon.
      */
     public void pakDienblad(Dienblad dienblad)
     {
@@ -221,8 +285,9 @@ public class Persoon
         }
     }
     
-    /*
-     * return het dienblad.
+    /**
+     * Methode om het dienblad te returnen.
+     * @return dienblad     Het dienblad.
      */
     public Dienblad getDienblad()
     {

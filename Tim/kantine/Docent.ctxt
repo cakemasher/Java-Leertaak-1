@@ -1,15 +1,20 @@
 #BlueJ class context
-comment0.params=Afkorting\ Afdeling
-comment0.target=Docent(java.lang.String,\ java.lang.String)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Docent\r\n
+comment0.params=bsn\ firstname\ lastname\ birthyear\ birthmonth\ birthday\ geslacht\ Afkorting\ Afdeling
+comment0.target=Docent(int,\ java.lang.String,\ java.lang.String,\ int,\ int,\ int,\ char,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Constructor\r\n\ @param\ bsn\ \ \ \ \ \ \ \ \ \ \ Het\ bsn\ nummer\ van\ de\ persoon.\r\n\ @param\ firstname\ \ \ \ \ De\ voornaam\ van\ de\ persoon.\r\n\ @param\ lastname\ \ \ \ \ \ De\ achternaam\ van\ de\ persoon.\r\n\ @param\ birthyear\ \ \ \ \ Het\ geboortejaar\ van\ de\ persoon.\r\n\ @param\ birthmonth\ \ \ \ De\ geboortemaand\ van\ de\ persoon.\r\n\ @param\ birthday\ \ \ \ \ \ De\ geboorteday\ van\ de\ persoon.\r\n\ @param\ geslacht\ \ \ \ \ \ Het\ geslacht\ van\ de\ persoon.\r\n\ @param\ Afkorting\ \ \ \ \ De\ afkorting\ van\ de\ docent.\r\n\ @param\ Afdeling\ \ \ \ \ \ De\ afdeling\ van\ de\ docent.\r\n
 comment1.params=Afkorting
 comment1.target=void\ setDocentAfkorting(java.lang.String)
+comment1.text=\r\n\ Methode\ voor\ de\ afkorting\ van\ de\ docent.\r\n\ @param\ Afkorting\ \ \ \ \ De\ afkorting\ van\ de\ docent.\r\n
 comment2.params=Afdeling
 comment2.target=void\ setAfdeling(java.lang.String)
+comment2.text=\r\n\ Methode\ voor\ de\ afdeling\ van\ de\ docent.\r\n\ @param\ Afdeling\ \ \ \ \ \ De\ Afdeling\ van\ de\ docent.\r\n
 comment3.params=
 comment3.target=java.lang.String\ getDocentAfkorting()
+comment3.text=\r\n\ Methode\ om\ de\ afkorting\ van\ de\ docent\ te\ krijgen.\r\n\ @return\ afkorting\ \ \ \ De\ afkorting\ van\ de\ docent.\r\n
 comment4.params=
 comment4.target=java.lang.String\ getAfdeling()
+comment4.text=\r\n\ Methode\ om\ de\ afdeling\ van\ de\ docent\ te\ krijgen.\r\n\ @return\ afdeling\ \ \ \ \ De\ afdeling\ van\ de\ docent.\r\n
 comment5.params=
 comment5.target=void\ drukAf()
+comment5.text=\r\n\ Methode\ om\ de\ gegevens\ van\ de\ docent\ aftedrukken.\r\n
 numComments=6

@@ -1,14 +1,14 @@
-
 import java.util.LinkedList;
 
 /**
- * Write a description of class KassaRij here.
+ * Klasse voor een kassarij in de kantine.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Tim Zijlstra) 
+ * @version ()
  */
 public class KassaRij
 {
+    // Een lijst van personen.
     private LinkedList<Persoon> kassarij;
     
     /**
@@ -21,7 +21,7 @@ public class KassaRij
     
     /**
      * Persoon sluit achter in de rij aan
-     * @param persoon
+     * @param persoon   De naam van het object persoon.
      */
     public void sluitAchteraan(Persoon persoon)
     {
@@ -65,15 +65,16 @@ public class KassaRij
         }
     }
     
-    /*
-     * Return the grootte van de array kassarij.
+    /**
+     * Methode om de grootte te returen van de kassarij.
+     * @return grootte  De grotte van de kassarij.
      */    
     public int arraySize()
     {
         return this.kassarij.size();
     }
     
-    /*
+    /**
      * Extra toegevoegd!!
      * Methode om te laten zien wie er in de rij staan
      */

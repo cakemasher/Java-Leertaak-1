@@ -1,18 +1,27 @@
 import java.util.*;
 
+/**
+ * KLasse voor het aanbod in de kantine.
+ * 
+ * @author (Tim Zijlstra) 
+ * @version ()
+ */
 public class KantineAanbod {
     // interne opslag voorraad
     private HashMap<String, ArrayList<Artikel>> aanbod;
     
-    private int bestelniveau = 1000;
+    // Het bestelniveau van de voorraad.
+    private static final int bestelniveau = 1000;
+    
+    // het vulniveau van de voorraad.
     private static final int vulniveau = 20000;
    
     
     /**
-     * Constructor. Het eerste argument is een lijst met artikelnamen,
-     * het tweede argument is een lijst met prijzen en het derde argument
-     * is een lijst met hoeveelheden. Let op: de dimensies van de drie arrays
-     * moeten wel gelijk zijn!
+     * Constructor
+     * @param artikelnaam   De naam van het artikel.
+     * @param prijs         De prijs van het artikel.
+     * @param hoeveelheid   De hoeveelheid van het product dat bestelt moet worden.
      */
     public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) {
         aanbod=new HashMap<String, ArrayList<Artikel>>();
@@ -27,9 +36,11 @@ public class KantineAanbod {
         }
     }
 
-    /*
+    /**
      * Private methode om de lijst van artikelen te krijgen op basis van de    
      * naam van het artikel. Retourneert null als artikel niet bestaat.
+     * @param productnaam   Naam van het product.
+     * @return product      Een product uit het aanbod.
      */
     private ArrayList<Artikel> getArrayList(String productnaam) {
          return aanbod.get(productnaam); 
@@ -38,6 +49,8 @@ public class KantineAanbod {
     /**
      * Private methode om een Artikel van de stapel artikelen af te pakken. 
      * Retourneert null als de stapel leeg is.
+     * @param stapel    De lijst van een artikelen hoeveelheid.
+     * @return a        Het artikel.
      */
     private Artikel getArtikel(ArrayList<Artikel> stapel) {
         if (stapel==null) { 
@@ -55,10 +68,10 @@ public class KantineAanbod {
         }
     }
     
-    /*
+    /**
      * Controleer of de voorraad grootte kleiner is als het bestelniveau.
      * Als dit zo is bestel nieuwe artikelen.
-     * @param de naam die het artikel heeft.
+     * @param artikelNaam   De naam die het artikel heeft.
      */    
     public void controleerVoorraad(String artikelNaam)
     {
@@ -70,13 +83,13 @@ public class KantineAanbod {
         }                
     }
     
-    /*
+    /**
      * Verwijder de artikelnaam uit de ArrayList zodat deze opnieuw toegevoegd kan worden.
      * Maak een nieuwe artikel ArrayList met de naam voorraad.
      * Een for loop zodat het artikel zo vaak wordt toegevoegd aan de voorraad.
-     * @param de naam van de artikel.
-     * @param het aantal artikelen dat er nog waren in de voorraad.
-     * @param de prijs die het artikel heeft.
+     * @param artikelNaam   De naam van de artikel.
+     * @param size          Het aantal artikelen dat er nog waren in de voorraad.
+     * @param prijs         De prijs die het artikel heeft.
      */
     public void vulVoorraad(String artikelNaam, int size, double prijs)
     {
@@ -95,8 +108,8 @@ public class KantineAanbod {
     /**
      * Publieke methode om een artikel via naam van de stapel te pakken.
      * Retouneert null als artikel niet bestaat of niet op voorraad is.
-     * @param naam (van artikel)
-     * @return artikel (of null)
+     * @param naam      De naam van het artikel.
+     * @return artikel  Het artikel.
      */
     public Artikel getArtikel(String naam) {
         this.controleerVoorraad(naam);

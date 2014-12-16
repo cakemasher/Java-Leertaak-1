@@ -1,19 +1,18 @@
-
 import java.util.Stack;
 import java.util.Iterator;
 
 /**
- * Write a description of class Dienblad here.
+ * Klasse voor een dienblad in de kantine.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Tim Zijlstra) 
+ * @version ()
  */
-
-
 public class Dienblad
 {
+    // Stapel met artikelen
     private Stack<Artikel> artikelen;
-    private double total;
+    
+    // Íterator van artikelen
     private Iterator<Artikel> artikelenIt;
     
     /**
@@ -33,8 +32,8 @@ public class Dienblad
         this.artikelen.add(artikel); 
     }
     
-    /*
-     * verander de artikelen ArrayList naar een Iterator.
+    /**
+     * Methode om artikelen ArrayList naar een Iterator teveranderen.
      */
     public Iterator<Artikel> getIterator()
     {

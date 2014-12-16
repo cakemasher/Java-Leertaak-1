@@ -7,5 +7,5 @@ comment1.target=void\ voegToe(Artikel)
 comment1.text=\r\n\ Methode\ om\ artikel\ aan\ dienblad\ toe\ te\ voegen\r\n\ @param\ artikel\r\n
 comment2.params=
 comment2.target=java.util.Iterator\ getIterator()
-comment2.text=\r\n\ verander\ de\ artikelen\ ArrayList\ naar\ een\ Iterator.\r\n
+comment2.text=\r\n\ Methode\ om\ artikelen\ ArrayList\ naar\ een\ Iterator\ teveranderen.\r\n
 numComments=3

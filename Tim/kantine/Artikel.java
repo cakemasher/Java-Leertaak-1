@@ -1,48 +1,55 @@
-
 /**
- * Write a description of class Artikelen here.
+ * Klasse om een artikel aan te maken.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Tim Zijlstra) 
+ * @version ()
  */
 public class Artikel
 {
-    // De onderstaande variables worden gedeclareerd.
+    // De naam van het artikel
     private String nameartikel;
-    private double priceartikel;
     
+    // De prijs van het artikel
+    private double priceartikel;    
     
-    /* Constructer voor de class Artikel. */
+    /**
+     * Constructer
+    */
     public Artikel( String nameartikel, double priceartikel)
     {
         setValues(nameartikel, priceartikel);
     }
     
-    public Artikel()
-    {
-        
-    }
-    
-    /* Een functie om de naam en de prijs te setten. */
+    /**
+     * Methode om de naam en de prijs te setten.
+     * @param nameartikel   De naam van het artikel.
+     * @param priceartikel  De prijs van het artikel.
+    */
     public void setValues(String nameartikel, double priceartikel)
     {
         this.nameartikel = nameartikel;
         this.priceartikel = priceartikel;
     }
     
-    /* Een getter functie, om het artikelnaam op te halen. */
+    /**
+     * methode om het artikelnaam op te halen.
+    */
     public String getName()
     {
         return this.nameartikel;
     }
     
-    /* Een getter functie, om het artikelprijs op te halen. */
+    /**
+     * Methode om het artikelprijs op te halen.
+    */
     public double getPrice()
     {
         return this.priceartikel;
     }
     
-    /* Een void functie waarmee de gegevens worden geprint. */
+    /**
+     * Methode waarmee de gegevens worden geprint.
+    */
     public void drukAf()
     {
         System.out.println("Artikelgegevens");
@@ -51,6 +58,5 @@ public class Artikel
         System.out.println("Prijsartikel: " + this.priceartikel + "cents");
         System.out.println("----------------------");
         System.out.println("");
-    }
-    
+    }    
 }

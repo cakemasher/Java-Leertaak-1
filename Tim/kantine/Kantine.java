@@ -1,19 +1,27 @@
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Write a description of class Kantine here.
+ * Klasse om een kantine aan temaken.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Tim Zijlstra) 
+ * @version ()
  */
 public class Kantine
 {
+    // Een object kassarij
     private KassaRij kassarij;
+    
+    // Een object kassa
     private Kassa kassa;
+    
+    // Een object persoon    
     private Persoon persoon;
+    
+    // Een object dienblad
     private Dienblad dienblad;
+    
+    // Een object kantineaanbod
     private KantineAanbod kantineaanbod;
     
     /**
@@ -70,7 +78,7 @@ public class Kantine
         this.kassa.resetKassa();
     }
     
-    /*
+    /**
      * return de kassa.
      */
     public Kassa getKassa()
@@ -78,7 +86,7 @@ public class Kantine
         return this.kassa;
     }
     
-    /*
+    /**
      * set het kantineaanbod.
      */
     public void setKantineAanbod(KantineAanbod aanbod)
@@ -86,7 +94,7 @@ public class Kantine
         this.kantineaanbod = aanbod;
     }
     
-    /*
+    /**
      * return het kantine aanbod.
      */
     public KantineAanbod getKantineAanbod()
