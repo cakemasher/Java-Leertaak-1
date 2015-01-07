@@ -2,10 +2,10 @@
  * Write a description of class Docent here.
  * 
  * @author Rick Wolthuis
- * @version 27-11-2014
+ * @version 7-1-2015
  */
  
-class Docent extends Persoon
+class Docent extends Persoon implements KortingskaartHouder
 {
 	private String afkorting;
 	private String afdeling;
@@ -18,7 +18,15 @@ class Docent extends Persoon
 	
 	public String toString ()
 	{
-		return "## Type: Docent, afkorting: " + this.afkorting + ", afdeling: " + this.afdeling;
+		String vanPersoon = super.toString();
+		
+		return vanPersoon + "## Type: Docent, afkorting: " + this.afkorting + ", afdeling: " + this.afdeling;
+	}
+	
+	
+	public void test ()
+	{
+		System.out.println ("Test method :D");
 	}
 	
 	
@@ -43,5 +51,23 @@ class Docent extends Persoon
 	public String getAfdeling ()
 	{
 		return this.afdeling;
-	}	
+	}
+	
+	
+	public double geefKortingsPercentage ()
+	{
+		return 25;
+	}
+	
+	
+	public boolean heeftMaximum ()
+	{
+		return true;
+	}
+	
+	
+	public double geefMaximum ()
+	{
+		return 1.00;
+	}
 }
