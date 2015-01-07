@@ -23,27 +23,29 @@ public class KantineAanbod
 	* is een lijst met hoeveelheden. Let op: de dimensies van de drie arrays
 	* moeten wel gelijk zijn!
 	*/
-	public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid)
+	public KantineAanbod()
 	{
 		/* Class initialiseren, en aanbod een nieuwe HashMap geven waarin als index key een String word gebruikt, en als value een ArrayList waarin Artikelen komen te staan. */
 		aanbod		= new HashMap<String, ArrayList<Artikel>>();
-			
-			/* Een for loop, die het zelfde aantal keer loopt als de array artikelnaam values heeft. */
-			for(int i = 0; i < artikelnaam.length; i++) 
+	}
+	
+	
+	/* Methode om een artikel toe te voegen aan het KantineAanbod. */
+	public void voegProductToe (String naam, double prijs, int aantal)
+	{
+		System.out.println ("KantineAanbod: Adding '" + naam + "', Price: '" + prijs + "', Amount: '" + aantal + "'.");
+		/* Een ArrayList maken. */
+		ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
+		
+			/* Een for maken die de ArrayList vult met alle artikelen. */
+			for (int i = 0; i < aantal; i++)
 			{
-				/* Een nieuwe variabele initaliseren als ArrayList. */
-				ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
-				
-					/* Een for loop maken, die net zo vaak loopt als de hoeveelheid aangeeft. */
-					for(int j = 0; j < hoeveelheid[i]; j++) 
-					{
-						/* Het artikel met de prijs in de ArrayList opslaan. */
-						artikelen.add(new Artikel(artikelnaam[i], prijs[i]));
-					}
-				
-				/* De ArrayList opslaan in de HashMap waarbij de index key de naam van het artikel mee krijgt. */
-				aanbod.put(artikelnaam[i], artikelen);
+				artikelen.add (new Artikel (naam, prijs));
+				System.out.println ("Added " + i + " / " + aantal + ".");
 			}
+			
+		/* Artikelen in het aanbod plaatsen. */
+		this.aanbod.put(naam, artikelen);
 	}
 	
 	

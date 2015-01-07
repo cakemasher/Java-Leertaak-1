@@ -8,7 +8,7 @@
 class Student extends Persoon
 {
 	private int studentnummer;
-	private String studierichting;
+	private String studierichting	= "Onbekend";
 	
 	
 	public Student (int BSN, String voornaam, String achternaam, int dag, int maand, int jaar, char geslacht) {

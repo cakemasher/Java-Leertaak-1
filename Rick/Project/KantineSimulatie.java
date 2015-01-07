@@ -18,13 +18,15 @@ public class KantineSimulatie
 	
 	private String[] dagen								= new String[] {"Maandag", "Disndag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"};
 	
-	private static final int AANTAL_ARTIKELEN			= 4;
+	//private static final int AANTAL_ARTIKELEN			= 4;
 	
-	private static final String[] artikelnamen			= new String[] {"Koffie", "Broodje pindakaas", "Broodje kaas", "Appelsap"};
-	private static double[] artikelprijzen				= new double[] {1.50, 2.10, 1.65, 1.65};
+	//private static final String[] artikelnamen		= new String[] {"Koffie", "Broodje pindakaas", "Broodje kaas", "Appelsap"};
+	//private static double[] artikelprijzen			= new double[] {1.50, 2.10, 1.65, 1.65};
 	
-	private static final int MIN_ARTIKELEN_PER_SOORT	= 10000;
-	private static final int MAX_ARTIKELEN_PER_SOORT	= 20000;	
+	//private static final int MIN_ARTIKELEN_PER_SOORT	= 10000;
+	//private static final int MAX_ARTIKELEN_PER_SOORT	= 20000;	
+	
+	private HashMap<String, Double> artikelen			= new HashMap<String, Double>();
 	
 	private static final int MIN_PERSONEN_PER_DAG		= 50;
 	private static final int MAX_PERSONEN_PER_DAG		= 100;
@@ -38,17 +40,34 @@ public class KantineSimulatie
 	public KantineSimulatie()
 	{
 		/* Een nieuw kantine object aanmaken en deze opslaan in deze class. */
-		this.kantine		= new Kantine();
+		this.kantine		= new Kantine ();
 		
-		this.random			= new Random();
+		this.random			= new Random ();
 		
-		int[] hoeveelheden	= getRandomArray(this.AANTAL_ARTIKELEN, this.MIN_ARTIKELEN_PER_SOORT, this.MAX_ARTIKELEN_PER_SOORT);
+		this.kantineaanbod	= new KantineAanbod (); 
 		
-		this.kantineaanbod	= new KantineAanbod(this.artikelnamen, this.artikelprijzen, hoeveelheden);
-		
-		this.kantine.setKantineAanbod(this.kantineaanbod);
+		this.kantine.setKantineAanbod (this.kantineaanbod);
 	}
 	
+	
+	/* Methode om een artikel toe te voegen. */
+	public void nieuwArtikel (String naam, double prijs, int voorraad)
+	{
+		/* Kijken of het artikel niet al bestaat. */
+		if (this.artikelen.containsKey (naam))
+		{
+			/* Dit is wel het geval, dus een melding hiervan geven. */
+			System.out.println ("Het artikel met de naam '" + naam + "' bestaat al in het assortiment.");
+		}
+		else
+		{
+			/* Het product in het aanbod plaatsen. */
+			this.kantineaanbod.voegProductToe (naam, prijs, voorraad);
+			
+			/* Het artikel bestaat nog niet, dus deze in de hashmap plaatsen. */
+			this.artikelen.put (naam, prijs);
+		}
+	}
 	
 	
 	/* Functie waarmee een int array word aangemaakt met als lengte 'int lengte', waarin random getallen tussen 'int min' en 'int max' worden geplaatst. */
@@ -88,8 +107,15 @@ public class KantineSimulatie
 			/* For loop maken die net zo vaak loopt als de lengte van de array. */
 			for(int i = 0; i < indexen.length; i++)
 			{
-				/* Het desbetreffence element de naam geven die bij het getal hoort uit de int array. */
-				artikelen[i] = artikelnamen[indexen[i]];
+				int count	= 0;
+				
+					for (Map.Entry<String, Double> entry : this.artikelen.entrySet())
+					{
+						if (count >= indexen[i])
+							artikelen[i] = entry.getKey();
+						
+						count++;
+					}
 			}
 		
 		/* De String array returnen. */
@@ -124,7 +150,7 @@ public class KantineSimulatie
 		int aantalartikelen	= this.getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
 						
 		/* Een int array aanmaken met het zelfde aantal values als aantalartikelen */
-		int[] tepakken		= getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
+		int[] tepakken		= getRandomArray(aantalartikelen, 0, (this.artikelen.size() - 1));
 						
 		/* De ints in de array tepakken koppelen met product namen. */
 		String[] artikelen	= geefArtikelNamen(tepakken);
