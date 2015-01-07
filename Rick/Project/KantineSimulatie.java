@@ -171,8 +171,15 @@ public class KantineSimulatie
 					}
 				
 				
-				/* De wachtrij verwerken, zodat alle klanten hebben afgerekend. */
-				this.kantine.verwerkRijVoorKassa();
+				try
+				{
+					/* De wachtrij verwerken, zodat alle klanten hebben afgerekend. */
+					this.kantine.verwerkRijVoorKassa();
+				}
+				catch (TeWeinigGeldException err)
+				{
+					System.out.println ("\n" + err.getMessage());
+				}
 				
 				/*
 					Er word afgerond op twee decimalen. In andere woorden, eerst word het getal x 100 gedaan, dus het getal 100,5050 word bijv. 10050,50

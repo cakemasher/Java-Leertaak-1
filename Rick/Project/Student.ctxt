@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=int\ getStudentnummer()
 comment5.params=
 comment5.target=java.lang.String\ getStudierichting()
-numComments=6
+comment6.params=
+comment6.target=double\ geefKortingsPercentage()
+numComments=7

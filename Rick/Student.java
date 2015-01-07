@@ -2,7 +2,7 @@
  * Write a description of class Student here.
  * 
  * @author Rick Wolthuis
- * @version 27-11-2014
+ * @version 7-1-2015
  */
 
 class Student extends Persoon
@@ -18,7 +18,9 @@ class Student extends Persoon
 	
 	public String toString ()
 	{
-		return "## Type: Student, nummer: " + this.studentnummer + ", richting: " + this.studierichting;
+		String vanPersoon = super.toString();
+		
+		return vanPersoon + "## Type: Student, nummer: " + this.studentnummer + ", richting: " + this.studierichting;
 	}
 	
 	

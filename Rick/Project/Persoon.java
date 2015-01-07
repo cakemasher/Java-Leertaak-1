@@ -2,7 +2,7 @@
  * Write a description of class Persoon here.
  * 
  * @author Rick Wolthuis
- * @version 18-11-2014
+ * @version 7-1-2015
  */
 
 /* Stack importeren zodat we deze kunnen gebruiken in onze class. */
@@ -22,6 +22,8 @@ public class Persoon
 	
 	private Dienblad dienblad;
 	
+	private Betaalwijze betaalwijze;
+	
 	/* Constructer voor de class Persoon. */
 	public Persoon(int BSN, String Voornaam, String Achternaam, int GeboorteDatumDag, int GeboorteDatumMaand, int GeboorteDatumJaar, char Geslacht)
 	{
@@ -33,42 +35,36 @@ public class Persoon
 		/* De setters aanroepen om de controles uit te voeren. */
 		this.setGeboorteDatum(GeboorteDatumDag, GeboorteDatumMaand, GeboorteDatumJaar);
 		this.setGeslacht(Geslacht);
+		
+		this.betaalwijze	= new Pinpas ();
+	}
+	
+	
+	/* Een boolean methode waarmee gecontrolleerd word of het ingevulde object het zelfde is als het object waar het geheel ingevoerd word. */
+	public boolean equals (Object obj)
+	{
+		/* Kijken of alle data van dit object overeen komt met het ingevulde object. */
+		if (this.toString().equals (obj.toString()))
+		{
+			/* Dit bleek het geval, dus return een true. */
+			return true;
+		}
+		
+		/* Er is nog geen return aangeroepen, dus is de if statement false. Return daarom dus ook een false. */
+		return false;
 	}
 	
 	
 	/* Een void functie waarmee de gegevens worden geprint. */
-	public void drukAf()
+	public String toString()
 	{
-		/* Het begin van de functie markeren, gevolgd door een enter, zodat het duidelijk word dat onderstaande bij elkaar hoord. */
-		System.out.println("########################");
+		String returnString	= "## Naam: " + this.getVoornaam () + " " + this.getAchternaam () + "\n";
 		
-			/* Controleren of dit object een instantie van Student is. */
-			if (this instanceof Student)
-				System.out.println("## Type persoon: Student");
-			
-			/* Controleren of dit object een instantie van Docent is. */
-			if (this instanceof Docent)
-				System.out.println("## Type persoon: Docent");
-			
-			/* Controleren of dit object een instantie van Kantinemedewerker is. */
-			if (this instanceof Kantinemedewerker)
-				System.out.println("## Type persoon: Kantinemedewerker");
+		returnString += "## BSN: " + this.getBSN () + "\n";
+		returnString += "## Geslacht: " + this.getGeslacht () + "\n";
+		returnString += "## Geboortedatum: " + this.getGeboorteDatum () + "\n";
 		
-		/* De voor en achternaam printen. */
-		System.out.println("## Naam: " + this.getVoornaam () + " " + this.getAchternaam ());
-		
-		/* Het BSN nummer printen. */
-		System.out.println("## BSN: " + this.getBSN ());
-		
-		/* Het geslacht printen. */
-		System.out.println("## Geslacht: " + this.getGeslacht ());
-		
-		/* Het geboortedatum printen. */
-		System.out.println("## Geboortedatum: " + this.getGeboorteDatum ());
-		
-		/* Het einde van de print functie markeren, zodat indien er meerdere personen worden geprint het makkelijker leesbaar is. */
-		System.out.println("########################");
-		System.out.println("");
+		return returnString;
 	}
 	
 	
@@ -243,5 +239,19 @@ public class Persoon
 	public int getBSN()
 	{
 		return this.BSN;
+	}
+	
+	
+	/* Een setter methode waar een betaalwijze kan worden geset. */
+	public void setBetaalwijze (Betaalwijze bwz)
+	{
+		this.betaalwijze = bwz;
+	}
+	
+	
+	/* Een getter methode om de betaalwijze op te vragen. */
+	public Betaalwijze getBetaalwijze ()
+	{
+		return this.betaalwijze;
 	}
 }
