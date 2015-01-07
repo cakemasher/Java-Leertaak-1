@@ -46,7 +46,7 @@ public class Kantine
 	
 	
 	/* Functie waarmee de wachtrij word verwerkt van de kassa. */
-	public void verwerkRijVoorKassa()
+	public void verwerkRijVoorKassa() throws TeWeinigGeldException
 	{
 		/*
 			Een while word hier gebruikt omdat er tijdens de simulatie eventueel klanten zouden kunnen aansluiten.
