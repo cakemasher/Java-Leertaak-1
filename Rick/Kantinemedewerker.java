@@ -2,10 +2,10 @@
  * Write a description of class Kantinemedewerker here.
  * 
  * @author Rick Wolthuis
- * @version 27-11-2014
+ * @version 7-1-2015
  */
 
-class Kantinemedewerker extends Persoon
+class Kantinemedewerker extends Persoon implements KortingskaartHouder
 {
 	private int medewerkersNummer;
 	private boolean cassiere;
@@ -17,7 +17,9 @@ class Kantinemedewerker extends Persoon
 	
 	public String toString ()
 	{
-		return "## Type: Kantinemedewerker, nummer: " + this.medewerkersNummer + ", is cassiere: " + this.cassiere;
+		String vanPersoon = super.toString();
+		
+		return vanPersoon + "## Type: Kantinemedewerker, nummer: " + this.medewerkersNummer + ", is cassiere: " + this.cassiere;
 	}
 
 	
@@ -42,5 +44,23 @@ class Kantinemedewerker extends Persoon
 	public boolean getCassiere ()
 	{
 		return this.cassiere;
-	}	
+	}
+	
+		
+	public double geefKortingsPercentage ()
+	{
+		return 35;
+	}
+	
+	
+	public boolean heeftMaximum ()
+	{
+		return false;
+	}
+	
+	
+	public double geefMaximum ()
+	{
+		return 0;
+	}
 }
