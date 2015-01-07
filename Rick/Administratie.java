@@ -39,7 +39,6 @@ public class Administratie
 				int j = 0;
 				
 					/* Een while loop maken die net zo lang door gaat met loopen, totdat de value van de dag van de week erna, leeg is. */
-					//while(omzet[(i + (DAYS_IN_WEEK * j))] != -1)
 					while (true)
 					{
 						/* Controleren of de array niet out of bounds is met de value voor volgende week. */
