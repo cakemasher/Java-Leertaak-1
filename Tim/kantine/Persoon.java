@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Klasse om een persoon aantemaken.
@@ -69,7 +69,7 @@ public class Persoon
         setFirstName(firstname);
         setLastName(lastname);
         setBirthDate(birthyear, birthmonth, birthday);
-        setGeslacht(geslacht);
+        setGeslacht(geslacht);    
         
     }
     
@@ -87,7 +87,29 @@ public class Persoon
         System.out.println("Geslacht: " + this.getGeslacht());
         System.out.println("-----------------------");
         System.out.println("");
-    }   
+    }
+    
+    public String toString()
+    {
+        String printResult = "";
+        printResult += this.getBSN() + " - ";
+        printResult += this.getFirstName() + " - ";
+        printResult += this.getLastName() + " - ";
+        printResult += this.getBirthDate() + " - ";
+        printResult += this.getGeslacht();
+        
+        return printResult.toString();
+    }
+    
+    public boolean equals(Object obj)
+    {
+        if(this.toString().equals(obj.toString()))
+        {
+            return true;
+        }
+        
+        return false;
+    }
     
     /**
      * Methode om het bsn nuummer te setten.
@@ -292,5 +314,5 @@ public class Persoon
     public Dienblad getDienblad()
     {
         return this.dienblad;
-    }
+    }      
 }

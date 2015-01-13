@@ -74,14 +74,19 @@ public class Student extends Persoon
     {
         System.out.println("Studentgegevens");
         System.out.println("---------------------------------");
-        System.out.println("BugerServiceNummer: " + this.getBSN());
-        System.out.println("Firstname: " + this.getFirstName());
-        System.out.println("Lastname: " + this.getLastName());
-        System.out.println("BirthDate: " + this.getBirthDate());
-        System.out.println("Geslacht: " + this.getGeslacht());
         System.out.println("Studentnummer: " + this.studentnummer);
         System.out.println("Studierichting: " + this.studierichting);
         System.out.println("---------------------------------");
         System.out.println("");
+    }
+    
+    public String toString()
+    {
+        String printResult = "";
+        printResult += super.toString();
+        printResult +=  " - " + this.getStudentNummer();
+        printResult += " - " + this.getStudieRichting();
+        
+        return printResult;
     }
 }

@@ -74,14 +74,19 @@ public class Docent extends Persoon
     {
         System.out.println("Docentgegevens");
         System.out.println("---------------------------------");
-        System.out.println("BugerServiceNummer: " + this.getBSN());
-        System.out.println("Firstname: " + this.getFirstName());
-        System.out.println("Lastname: " + this.getLastName());
-        System.out.println("BirthDate: " + this.getBirthDate());
-        System.out.println("Geslacht: " + this.getGeslacht());
         System.out.println("Afkorting: " + this.afkorting);
         System.out.println("Afdeling: " + this.afdeling);
         System.out.println("---------------------------------");
         System.out.println("");
+    }
+    
+    public String toString()
+    {
+        String printResult = "";
+        printResult += super.toString();
+        printResult +=  " - " + this.getDocentAfkorting();
+        printResult += " - " + this.getAfdeling();
+        
+        return printResult;        
     }
 }

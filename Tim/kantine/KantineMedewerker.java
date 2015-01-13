@@ -49,6 +49,16 @@ public class KantineMedewerker extends Persoon
         this.kassatoegang = kassaToegang;
     }
     
+    public int getMedewerkersNummer()
+    {
+        return this.medewerkersnummer;
+    }
+    
+    public boolean getKassaToegang()
+    {
+        return this.kassatoegang;
+    }
+    
     /**
      * Methode om de gegevens van de persoon aftedrukken.
      */
@@ -56,14 +66,19 @@ public class KantineMedewerker extends Persoon
     {
         System.out.println("Kantinemedewerkergegevens");
         System.out.println("---------------------------------");
-        System.out.println("BugerServiceNummer: " + this.getBSN());
-        System.out.println("Firstname: " + this.getFirstName());
-        System.out.println("Lastname: " + this.getLastName());
-        System.out.println("BirthDate: " + this.getBirthDate());
-        System.out.println("Geslacht: " + this.getGeslacht());
         System.out.println("Medewerkersnummer: " + this.medewerkersnummer);
         System.out.println("Kassatoegang: " + this.kassatoegang);
         System.out.println("---------------------------------");
         System.out.println("");
+    }
+    
+    public String toString()
+    {        
+        String printResult = "";
+        printResult += super.toString();
+        printResult += " - " + this.getMedewerkersNummer();
+        printResult += " - " + this.getKassaToegang();
+        
+        return printResult;
     }
 }
