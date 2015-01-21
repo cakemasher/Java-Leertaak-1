@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=naam\ prijs
+comment0.target=Artikel(java.lang.String,\ double)
+comment0.text=De\ constructer\ van\ de\ class,\ waarbij\ de\ naam\ en\ prijs\ van\ het\ artikel\ mee\ gegeven\ word.
+comment1.params=
+comment1.target=void\ drukAf()
+comment1.text=Een\ void\ functie\ waarmee\ de\ gegevens\ worden\ geprint.
+comment2.params=newNaam
+comment2.target=void\ setNaam(java.lang.String)
+comment2.text=Een\ void\ functie\ om\ de\ naam\ van\ het\ artikel\ te\ wijzigen.
+comment3.params=
+comment3.target=java.lang.String\ getNaam()
+comment3.text=Een\ functie\ die\ een\ String\ returned\ waarmee\ de\ naam\ opgehaald\ kan\ worden.
+comment4.params=newPrijs
+comment4.target=void\ setPrijs(double)
+comment4.text=Een\ void\ functie\ om\ de\ prijs\ aan\ te\ passen.\ Hier\ word\ een\ double\ gebruikt\ i.v.m.\ getallen\ achter\ de\ komma.
+comment5.params=
+comment5.target=double\ getPrijs()
+comment5.text=Een\ functie\ die\ een\ double\ returned\ met\ de\ prijs\ van\ het\ artikel\ erin.
+numComments=6

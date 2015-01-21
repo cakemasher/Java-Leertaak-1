@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=saldo
+comment0.target=void\ setSaldo(double)
+comment1.params=tebetalen
+comment1.target=void\ betaal(double)
+numComments=2

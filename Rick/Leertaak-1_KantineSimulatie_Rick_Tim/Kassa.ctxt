@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=kassarij
+comment0.target=Kassa(KassaRij)
+comment0.text=Constructor\ voor\ de\ class\ Dienblad.
+comment1.params=totaal\ korting\ hasMax\ max
+comment1.target=double\ totaalPrijsMetKorting(double,\ double,\ boolean,\ double)
+comment1.text=Methdoe\ om\ korting\ over\ het\ 'double\ totaal'\ te\ verekenen\ en\ dit\ te\ returnen.
+comment2.params=
+comment2.target=void\ rekenAf()
+comment2.text=Methode\ rekenAf\ waarmee\ er\ word\ afgerekend\ met\ de\ eerste\ persoon\ uit\ de\ wachtrij\ van\ de\ kassa.
+comment3.params=artikelen
+comment3.target=int\ getAantalArtikelen(java.util.Stack)
+comment3.text=Functie\ om\ het\ aantal\ artikelen\ op\ het\ dienblad\ te\ tellen
+comment4.params=artikelen
+comment4.target=double\ getTotaalPrijs(java.util.Stack)
+comment4.text=Functie\ om\ totaal\ prijs\ van\ het\ dienblad\ te\ berekenen.
+comment5.params=
+comment5.target=int\ aantalArtikelen()
+comment5.text=Methode\ om\ het\ aantal\ artikelen\ dat\ in\ totaal\ langs\ de\ kassa\ is\ geweest,\ terug\ te\ geven.
+comment6.params=
+comment6.target=double\ hoeveelheidGeldInKassa()
+comment6.text=Methode\ om\ het\ geld\ bedrag\ wat\ totaal\ is\ betaald\ terug\ te\ geven.
+comment7.params=
+comment7.target=void\ resetKassa()
+comment7.text=Methode\ om\ zowel\ het\ aantal\ producten,\ als\ het\ totaal\ bedrag\ op\ 0\ te\ zetten.
+numComments=8
